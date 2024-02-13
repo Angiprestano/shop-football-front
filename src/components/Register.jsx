@@ -106,10 +106,7 @@ const Register = () => {
                 }}
               >
                 <Form.Label className="fw-semibold">Password</Form.Label>
-                <Form.Control
-                  type="password"
-                  placeholder="Inserisci una password"
-                />
+                <Form.Control type="password" placeholder="password" />
               </Form.Group>
               <Button
                 type="submit"

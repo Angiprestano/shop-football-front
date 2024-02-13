@@ -71,6 +71,9 @@ const PageLogin = () => {
                 Login
               </Button>
               <Button
+                onClick={() => {
+                  navigate("/register");
+                }}
                 type="submit"
                 className="buttons mb-3 ms-2 bg-black border-secondary text-primary fw-semibold"
               >
