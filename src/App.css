@@ -36,3 +36,20 @@
     transform: rotate(360deg);
   }
 }
+
+body{
+  background-image: url("https://img.freepik.com/premium-vector/football-soccer-background-with-big-ball-gray-colors_444390-2029.jpg?w=900");
+  background-size: 100% 210%; 
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.buttons{
+  transition: 0.3s ease;
+  width: 30%;
+  cursor: pointer;
+}
+
+.buttons:hover{
+background-color: rgb(129, 227, 227);
+}
