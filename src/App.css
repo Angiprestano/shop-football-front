@@ -37,11 +37,8 @@
   }
 }
 
-body{
-  background-image: url("https://img.freepik.com/premium-vector/football-soccer-background-with-big-ball-gray-colors_444390-2029.jpg?w=900");
-  background-size: 100% 210%; 
-  background-repeat: no-repeat;
-  background-position: center;
+.logo{
+  width: 48px;
 }
 
 .buttons{
