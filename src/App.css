@@ -46,10 +46,9 @@ body{
 
 .buttons{
   transition: 0.3s ease;
-  width: 30%;
+  width: 18%;
   cursor: pointer;
+  
 }
 
-.buttons:hover{
-background-color: rgb(129, 227, 227);
-}
+

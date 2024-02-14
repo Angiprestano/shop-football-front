@@ -51,16 +51,15 @@ const Register = () => {
       <Container className="d-flex justify-content-center mt-4">
         <Row className="justify-content-evenly align-align-items-center w-50 h-50 mt-5">
           <Col>
-            <h2>Registrati</h2>
+            <h2 className="mt-2">Registrati</h2>
             <Form
-              className="mt-5 pt-5 ps-3"
+              className="mt-4 pt-2 ps-2"
               onSubmit={(e) => {
                 e.preventDefault();
                 registerUser();
               }}
             >
               <Form.Group
-                className="mb-3 mt-3"
                 onChange={(e) => {
                   setName(e.target.value);
                 }}
@@ -110,9 +109,15 @@ const Register = () => {
               </Form.Group>
               <Button
                 type="submit"
-                className="buttons mb-3 ms-2 bg-black border-secondary text-primary fw-semibold"
+                className="buttons text-primary mb-3 ms-2 mt-3 bg-black border-black fw-semibold"
               >
-                Register
+                Registrati
+              </Button>
+              <Button
+                type="submit"
+                className="mb-3 ms-2 mt-3 bg-danger border-danger text-black fw-semibold"
+              >
+                Logout
               </Button>
             </Form>
           </Col>
