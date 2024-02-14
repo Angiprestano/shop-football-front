@@ -65,6 +65,9 @@ const PageLogin = () => {
                 <Form.Check type="checkbox" label="Check me out" />
               </Form.Group>
               <Button
+                onClick={() => {
+                  navigate("/homepage");
+                }}
                 type="submit"
                 className="buttons mb-3 bg-primary text-black border-secondary fw-semibold "
               >

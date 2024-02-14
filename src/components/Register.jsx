@@ -8,7 +8,6 @@ const Register = () => {
   const [email, setEmail] = useState("");
   const [address, setAddress] = useState("");
   const [password, setPassword] = useState("");
-
   const navigate = useNavigate();
 
   const payload = {
@@ -114,6 +113,9 @@ const Register = () => {
                 Registrati
               </Button>
               <Button
+                onClick={() => {
+                  navigate("/login");
+                }}
                 type="submit"
                 className="mb-3 ms-2 mt-3 bg-danger border-danger text-black fw-semibold"
               >
