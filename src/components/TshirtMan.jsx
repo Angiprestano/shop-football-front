@@ -19,16 +19,16 @@ const TshirtMan = () => {
     <div>
       <h3>Magliette per uomo</h3>
       {TshirtMan && TshirtMan.length > 0 ? (
-        TshirtMan((Products, index) => (
+        TshirtMan.map((products, index) => (
           <Card key={index} style={{ width: "18rem", marginBottom: "20px" }}>
-            <Card.Img variant="top" src={Products.image} alt={Products.title} />
+            <Card.Img variant="top" src={products.image} alt={products.title} />
             <Card.Body>
-              <Card.Title>{Products.title}</Card.Title>
-              <Card.Text>{Products.description}</Card.Text>
+              <Card.Title>{products.title}</Card.Title>
+              <Card.Text>{products.description}</Card.Text>
             </Card.Body>
             <ListGroup className="list-group-flush">
-              <ListGroup.Item>Categorie: {Products.categories}</ListGroup.Item>
-              <ListGroup.Item>Prezzo: {Products.price}</ListGroup.Item>
+              <ListGroup.Item>Categorie: {products.categories}</ListGroup.Item>
+              <ListGroup.Item>Prezzo: {products.price}</ListGroup.Item>
             </ListGroup>
           </Card>
         ))
