@@ -17,6 +17,7 @@ function App() {
       setJwtToken(cachedToken);
     }
   }, []);
+
   const isLoggedIn = true;
   return (
     <BrowserRouter>
