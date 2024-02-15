@@ -48,4 +48,12 @@
   
 }
 
+#basic-nav-dropdown{
+  color: rgb(255, 255, 255);
+  font: bold;
+}
+
+.navbar{
+  background-color: rgb(33, 33, 139);
+}
 

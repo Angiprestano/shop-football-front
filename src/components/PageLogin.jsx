@@ -1,9 +1,12 @@
 import { useState } from "react";
 import { Container, Button, Row, Col } from "react-bootstrap";
 import Form from "react-bootstrap/Form";
+import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { login } from "../Redux/action";
 
 const PageLogin = () => {
+  const dispatch = useDispatch();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -15,32 +18,6 @@ const PageLogin = () => {
   };
 
   const [error, setError] = useState(false);
-
-  const Login = () => {
-    fetch("http://localhost:3001/auth/login", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(body),
-    })
-      .then((res) => {
-        if (res.ok) {
-          navigate("/homepage");
-          return res.json();
-        } else {
-          setError(true);
-          throw new Error("error on login");
-        }
-      })
-      .then((data) => {
-        console.log(data);
-        localStorage.setItem("token", "Bearer" + data.token);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  };
 
   const token = localStorage.getItem("token");
 
@@ -67,17 +44,30 @@ const PageLogin = () => {
                   <Form.Label className="fw-semibold text-white">
                     Email
                   </Form.Label>
-                  <Form.Control type="email" placeholder="Enter email" />
+                  <Form.Control
+                    type="email"
+                    placeholder="Inserisci l'email"
+                    onChange={(e) => setEmail(e.target.value)}
+                  />
                 </Form.Group>
 
                 <Form.Group className="mb-3" controlId="formBasicPassword">
                   <Form.Label className="fw-semibold text-white">
                     Password
                   </Form.Label>
-                  <Form.Control type="password" placeholder="Password" />
+                  <Form.Control
+                    type="password"
+                    placeholder="Password"
+                    onChange={(e) => {
+                      setPassword(e.target.value);
+                      console.log(body);
+                    }}
+                  />
                 </Form.Group>
                 <Button
-                  onClick={() => {
+                  onClick={(e) => {
+                    e.preventDefault();
+                    dispatch(login(body));
                     navigate("/homepage");
                   }}
                   type="submit"
