@@ -1,6 +1,7 @@
 import { useState } from "react";
 import {
   Button,
+  Card,
   Col,
   Form,
   NavLink,
@@ -17,6 +18,36 @@ const OneNavbar = () => {
   const [showDropdown, setShowDropdown] = useState(false);
   const [showDropdown1, setShowDropdown1] = useState(false);
 
+  const [searchTerm, setSearchTerm] = useState("");
+  const [searchResults, setSearchResults] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
+
+  const handleChange = (event) => {
+    setSearchTerm(event.target.value);
+  };
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    setLoading(true);
+    try {
+      const response = await fetch(
+        `http://localhost:3001/products/product_title?title=${searchTerm}`
+      );
+      if (!response.ok) {
+        throw new Error("Errore durante la richiesta");
+      }
+      const data = await response.json();
+      setSearchResults(data);
+      setError("");
+    } catch (error) {
+      setError("Errore durante la ricerca. Riprova più tardi.");
+      console.error("Errore durante la ricerca:", error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
     <Navbar expand="lg" className="navbar">
       <Container>
@@ -30,59 +61,70 @@ const OneNavbar = () => {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
-            <NavLink className="text-white">Home</NavLink>
+            <NavLink href="/homepage" className="text-white">
+              Home
+            </NavLink>
             <OverlayTrigger
               trigger="click"
               placement="bottom"
               show={showDropdown}
               onToggle={(show) => setShowDropdown(show)}
               overlay={
-                <Popover id="popover-basic">
+                <Popover id="popover-basic" className="bg bg-warning-subtle">
                   <Popover.Body>
                     <Row>
-                      <Col>
+                      <Col className="me-3 ms-2">
                         <h6>Uomo</h6>
                         <Link to="/tshirtMan" className="dropdown-item">
-                          Maglietta Uomo
+                          Magliette
                         </Link>
-                        <Link to="/action2" className="dropdown-item">
-                          Action 2
+                        <Link to="/sweatshirtMan" className="dropdown-item">
+                          Felpe
                         </Link>
                         <Link to="/action3" className="dropdown-item">
-                          Action 3
+                          Pantaloni
                         </Link>
-                        <Link to="/action4" className="dropdown-item">
-                          Action 4
+                        <Link to="/suitMan" className="dropdown-item">
+                          Tute
+                        </Link>
+                        <Link to="/pajamasMan" className="dropdown-item">
+                          Pigiami
                         </Link>
                       </Col>
                       <Col>
                         <h6>Donna</h6>
-                        <Link to="/action5" className="dropdown-item">
-                          Action 5
-                        </Link>
                         <Link to="/action6" className="dropdown-item">
-                          Action 6
+                          Magliette
                         </Link>
-                        <Link to="/action7" className="dropdown-item">
-                          Action 7
+                        <Link to="/sweatshirtWomen" className="dropdown-item">
+                          Felpe
                         </Link>
                         <Link to="/action8" className="dropdown-item">
-                          Action 8
+                          Jeans
+                        </Link>
+                        <Link to="/suitWomen" className="dropdown-item">
+                          Tute
+                        </Link>
+                        <Link to="/pajamasWomen" className="dropdown-item">
+                          Pigiami
                         </Link>
                       </Col>
-                      <Col>
-                        <h6>Bambino</h6>
-                        <Link to="/action9" className="dropdown-item">
-                          Action 9
-                        </Link>
-                        <Link to="/action10" className="dropdown-item">
-                          Action 10
-                        </Link>
+                      <Col className="me-3 ms-2">
+                        <h6 className="mt-3">Bambino</h6>
                         <Link to="/action11" className="dropdown-item">
-                          Action 11
+                          Magliette
                         </Link>
                         <Link to="/action12" className="dropdown-item">
-                          Action 12
+                          Felpe
+                        </Link>
+                        <Link to="/action13" className="dropdown-item">
+                          Pantaloni
+                        </Link>
+                        <Link to="/action14" className="dropdown-item">
+                          Tute
+                        </Link>
+                        <Link to="/action15" className="dropdown-item">
+                          Pigiami
                         </Link>
                       </Col>
                     </Row>
@@ -101,39 +143,15 @@ const OneNavbar = () => {
               show={showDropdown1}
               onToggle={(show) => setShowDropdown1(show)}
               overlay={
-                <Popover id="popover-basic">
+                <Popover id="popover-basic" className="bg bg-warning-subtle ">
                   <Popover.Body>
                     <Row>
                       <Col>
-                        <Link to="/action1" className="dropdown-item">
-                          Action 1
-                        </Link>
-                        <Link to="/action2" className="dropdown-item">
-                          Action 2
-                        </Link>
-                      </Col>
-                      <Col>
-                        <Link to="/action3" className="dropdown-item">
-                          Action 3
-                        </Link>
-                        <Link to="/action4" className="dropdown-item">
-                          Action 4
-                        </Link>
-                      </Col>
-                      <Col>
-                        <Link to="/action5" className="dropdown-item">
-                          Action 5
-                        </Link>
-                        <Link to="/action6" className="dropdown-item">
-                          Action 6
-                        </Link>
-                      </Col>
-                      <Col>
-                        <Link to="/action7" className="dropdown-item">
-                          Action 7
-                        </Link>
-                        <Link to="/action8" className="dropdown-item">
-                          Action 8
+                        <Link
+                          to="/accessories"
+                          className="dropdown-item ms-2 me-2 mt-2 mb-2"
+                        >
+                          Accessori
                         </Link>
                       </Col>
                     </Row>
@@ -147,16 +165,36 @@ const OneNavbar = () => {
             </OverlayTrigger>
           </Nav>
         </Navbar.Collapse>
-        <Form inline>
+        <Form onSubmit={handleSubmit} inline>
           <Form.Control
             type="text"
             placeholder="Search"
             className="d-flex justify-content-end"
+            value={searchTerm}
+            onChange={handleChange}
           />
         </Form>
         <Button type="submit" className="ms-3 fw-bold bg bg-black">
           Cerca
         </Button>
+
+        {loading && <p>Caricamento...</p>}
+        {error && <p>{error}</p>}
+        {searchResults.length > 0 && (
+          <div>
+            <h5>Risultati della ricerca:</h5>
+            <div>
+              {searchResults.map((result) => (
+                <Card key={result.id}>
+                  <Card.Body>
+                    <Card.Title>{result.title}</Card.Title>
+                    <Card.Text>{result.description}</Card.Text>
+                  </Card.Body>
+                </Card>
+              ))}
+            </div>
+          </div>
+        )}
       </Container>
     </Navbar>
   );

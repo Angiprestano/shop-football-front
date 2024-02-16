@@ -1,27 +1,27 @@
 import { useDispatch, useSelector } from "react-redux";
-import { getTshirtMan } from "../Redux/action";
+import { getSuitMan } from "../Redux/action";
 import { useEffect } from "react";
 import { Card, Col, Container, ListGroup, Row } from "react-bootstrap";
 
-const TshirtMan = () => {
+const SuitMan = () => {
   const token = useSelector((state) => state.token);
-  const tshirtMan = useSelector((state) => state.tshirtMan);
+  const suitMan = useSelector((state) => state.suitMan);
   const dispatch = useDispatch();
 
   useEffect(() => {
     if (token) {
-      dispatch(getTshirtMan(token));
+      dispatch(getSuitMan(token));
       console.log("ecco il token", token);
     }
   }, [dispatch, token]);
 
   return (
     <div className="bg bg-primary-subtle">
-      <h4 className="ms-5 ps-3 pt-3 mb-4">Magliette per uomo</h4>
+      <h4 className="ms-5 ps-5 pt-2 mb-4">Tute Uomo</h4>
       <Container>
         <Row>
-          {tshirtMan ? (
-            tshirtMan.map((product, index) => (
+          {suitMan ? (
+            suitMan.map((product, index) => (
               <Col md={3} key={index}>
                 <Card style={{ width: "15rem", marginBottom: "20px" }}>
                   <Card.Img
@@ -42,6 +42,7 @@ const TshirtMan = () => {
                     <ListGroup.Item>
                       Prezzo: €{product.price.toFixed(2)}
                     </ListGroup.Item>
+
                     <ListGroup.Item>Colore:{product.color}</ListGroup.Item>
 
                     <ListGroup.Item>Taglia: {product.size}</ListGroup.Item>
@@ -65,4 +66,4 @@ const TshirtMan = () => {
     </div>
   );
 };
-export default TshirtMan;
+export default SuitMan;

@@ -135,7 +135,7 @@ const Register = () => {
                 </Button>
                 <Button
                   onClick={() => {
-                    navigate("/login");
+                    navigate("/");
                   }}
                   type="submit"
                   className="mb-3 ms-2 mt-3 bg-danger border-danger text-black fw-semibold"
