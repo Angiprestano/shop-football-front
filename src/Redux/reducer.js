@@ -3,11 +3,17 @@ import { ActionTypes, LOGIN } from "./action";
 const initialstate = {
   token: localStorage.getItem("token") || null,
   tshirtMan: null,
+  tshirtWomen: null,
   accessories: null,
   sweatshirtMan: null,
   sweatshirtWomen: null,
   pajamasMan: null,
   pajamasWomen: null,
+  tshirtKids: null,
+  felpaKids: null,
+  pajamasKids: null,
+  calcioMan: null,
+  calcioWomen: null,
   suitMan: null,
   suitWomen: null,
   error: null,
@@ -25,6 +31,31 @@ const reducer = (state = initialstate, action) => {
         ...state,
         tshirtMan: action.payload,
       };
+
+    case ActionTypes.SET_TSHIRT_WOMEN:
+      return {
+        ...state,
+        tshirtWomen: action.payload,
+      };
+
+    case ActionTypes.SET_TSHIRT_KIDS:
+      return {
+        ...state,
+        tshirtKids: action.payload,
+      };
+
+    case ActionTypes.SET_FELPA_KIDS:
+      return {
+        ...state,
+        felpaKids: action.payload,
+      };
+
+    case ActionTypes.SET_PAJAMAS_KIDS:
+      return {
+        ...state,
+        pajamasKids: action.payload,
+      };
+
     case ActionTypes.SET_SWEATSHIRT_MAN:
       return {
         ...state,
@@ -56,6 +87,18 @@ const reducer = (state = initialstate, action) => {
       return {
         ...state,
         suitWomen: action.payload,
+      };
+
+    case ActionTypes.SET_CALCIO_MAN:
+      return {
+        ...state,
+        calcioMan: action.payload,
+      };
+
+    case ActionTypes.SET_CALCIO_WOMEN:
+      return {
+        ...state,
+        calcioWomen: action.payload,
       };
 
     case ActionTypes.SET_ACCESSORIES:

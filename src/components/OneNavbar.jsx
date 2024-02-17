@@ -90,17 +90,17 @@ const OneNavbar = () => {
                         <Link to="/pajamasMan" className="dropdown-item">
                           Pigiami
                         </Link>
+                        <Link to="/calcioMan" className="dropdown-item">
+                          Set Calcio
+                        </Link>
                       </Col>
                       <Col>
                         <h6>Donna</h6>
-                        <Link to="/action6" className="dropdown-item">
+                        <Link to="/tshirtWomen" className="dropdown-item">
                           Magliette
                         </Link>
                         <Link to="/sweatshirtWomen" className="dropdown-item">
                           Felpe
-                        </Link>
-                        <Link to="/action8" className="dropdown-item">
-                          Jeans
                         </Link>
                         <Link to="/suitWomen" className="dropdown-item">
                           Tute
@@ -108,13 +108,16 @@ const OneNavbar = () => {
                         <Link to="/pajamasWomen" className="dropdown-item">
                           Pigiami
                         </Link>
+                        <Link to="/calcioWomen" className="dropdown-item">
+                          Set Calcio
+                        </Link>
                       </Col>
                       <Col className="me-3 ms-2">
                         <h6 className="mt-3">Bambino</h6>
-                        <Link to="/action11" className="dropdown-item">
+                        <Link to="/tshirtKids" className="dropdown-item">
                           Magliette
                         </Link>
-                        <Link to="/action12" className="dropdown-item">
+                        <Link to="/felpaKids" className="dropdown-item">
                           Felpe
                         </Link>
                         <Link to="/action13" className="dropdown-item">
@@ -123,7 +126,7 @@ const OneNavbar = () => {
                         <Link to="/action14" className="dropdown-item">
                           Tute
                         </Link>
-                        <Link to="/action15" className="dropdown-item">
+                        <Link to="/pajamasKids" className="dropdown-item">
                           Pigiami
                         </Link>
                       </Col>
