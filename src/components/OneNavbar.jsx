@@ -12,12 +12,12 @@ import {
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const OneNavbar = () => {
   const [showDropdown, setShowDropdown] = useState(false);
   const [showDropdown1, setShowDropdown1] = useState(false);
-
+  const navigate = useNavigate();
   const [searchTerm, setSearchTerm] = useState("");
   const [searchResults, setSearchResults] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -70,7 +70,7 @@ const OneNavbar = () => {
               show={showDropdown}
               onToggle={(show) => setShowDropdown(show)}
               overlay={
-                <Popover id="popover-basic" className="bg bg-warning-subtle">
+                <Popover id="popover-basic">
                   <Popover.Body>
                     <Row>
                       <Col className="me-3 ms-2">
@@ -90,7 +90,7 @@ const OneNavbar = () => {
                         <Link to="/pajamasMan" className="dropdown-item">
                           Pigiami
                         </Link>
-                        <Link to="/calcioMan" className="dropdown-item">
+                        <Link to="/setUomo" className="dropdown-item">
                           Set Calcio
                         </Link>
                       </Col>
@@ -108,7 +108,7 @@ const OneNavbar = () => {
                         <Link to="/pajamasWomen" className="dropdown-item">
                           Pigiami
                         </Link>
-                        <Link to="/calcioWomen" className="dropdown-item">
+                        <Link to="/setDonna" className="dropdown-item">
                           Set Calcio
                         </Link>
                       </Col>
@@ -146,7 +146,7 @@ const OneNavbar = () => {
               show={showDropdown1}
               onToggle={(show) => setShowDropdown1(show)}
               overlay={
-                <Popover id="popover-basic" className="bg bg-warning-subtle ">
+                <Popover id="popover-basic">
                   <Popover.Body>
                     <Row>
                       <Col>
@@ -177,8 +177,21 @@ const OneNavbar = () => {
             onChange={handleChange}
           />
         </Form>
-        <Button type="submit" className="ms-3 fw-bold bg bg-black">
+        <Button
+          type="submit"
+          className="ms-3 fw-bold bg bg-black border border-black"
+        >
           Cerca
+        </Button>
+
+        <Button
+          className="bg bg-body-secondary text-black border border-black ms-2"
+          onClick={(e) => {
+            e.preventDefault();
+            navigate("/cart");
+          }}
+        >
+          Carrello
         </Button>
 
         {loading && <p>Caricamento...</p>}

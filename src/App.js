@@ -19,6 +19,8 @@ import TshirtKids from "./components/TshirtKids";
 import FelpaKids from "./components/FelpaKids";
 import PajamasKids from "./components/PajamasKids";
 import SetWomen from "./components/SetWomen";
+import SetMan from "./components/SetMan";
+import MyCart from "./components/MyCart";
 
 function App() {
   const [jwtToken, setJwtToken] = useState(null);
@@ -53,6 +55,8 @@ function App() {
           <Route path="/felpaKids" element={<FelpaKids />}></Route>
           <Route path="/pajamasKids" element={<PajamasKids />}></Route>
           <Route path="/setDonna" element={<SetWomen />}></Route>
+          <Route path="/setUomo" element={<SetMan />}></Route>
+          <Route path="/cart" element={<MyCart />}></Route>
         </Routes>
       </div>
     </BrowserRouter>

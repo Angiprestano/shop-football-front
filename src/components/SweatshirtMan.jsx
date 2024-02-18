@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
-import { getSweatshirtMan } from "../Redux/action";
+import { ActionTypes, getSweatshirtMan } from "../Redux/action";
 import { useEffect } from "react";
-import { Card, Col, Container, ListGroup, Row } from "react-bootstrap";
+import { Button, Card, Col, Container, ListGroup, Row } from "react-bootstrap";
 
 const SweatShirtMan = () => {
   const token = useSelector((state) => state.token);
@@ -55,6 +55,17 @@ const SweatShirtMan = () => {
                       Tipo di prodotto: {product.typeofProduct}
                     </ListGroup.Item>
                   </ListGroup>
+                  <Button
+                    className="ms-4 me-4 mt-2 mb-2 text-black border border-black bg bg-body-secondary "
+                    onClick={() => {
+                      dispatch({
+                        type: ActionTypes.ADD_CART,
+                        payload: product,
+                      });
+                    }}
+                  >
+                    Aggiungi al carrello
+                  </Button>
                 </Card>
               </Col>
             ))

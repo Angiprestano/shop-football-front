@@ -1,27 +1,27 @@
 import { useDispatch, useSelector } from "react-redux";
-import { ActionTypes, getPajamasWomen } from "../Redux/action";
+import { ActionTypes, getCalcioMan } from "../Redux/action";
 import { useEffect } from "react";
 import { Button, Card, Col, Container, ListGroup, Row } from "react-bootstrap";
 
-const PajamasWomen = () => {
+const SetMan = () => {
   const token = useSelector((state) => state.token);
-  const pajamasWomen = useSelector((state) => state.pajamasWomen);
+  const calcioMan = useSelector((state) => state.calcioMan);
   const dispatch = useDispatch();
 
   useEffect(() => {
     if (token) {
-      dispatch(getPajamasWomen(token));
+      dispatch(getCalcioMan(token));
       console.log("ecco il token", token);
     }
   }, [dispatch, token]);
 
   return (
-    <div className="bg bg-primary-subtle">
-      <h4 className="ms-5 ps-5 pt-3 mb-4">Pigiami Donna</h4>
+    <div className="">
+      <h4 className="ms-5 ps-3 pt-3 mb-4">Completi calcio per Uomo</h4>
       <Container>
         <Row>
-          {pajamasWomen ? (
-            pajamasWomen.map((product, index) => (
+          {calcioMan ? (
+            calcioMan.map((product, index) => (
               <Col md={3} key={index}>
                 <Card style={{ width: "15rem", marginBottom: "20px" }}>
                   <Card.Img
@@ -42,7 +42,6 @@ const PajamasWomen = () => {
                     <ListGroup.Item>
                       Prezzo: €{product.price.toFixed(2)}
                     </ListGroup.Item>
-
                     <ListGroup.Item>Colore:{product.color}</ListGroup.Item>
 
                     <ListGroup.Item>Taglia: {product.size}</ListGroup.Item>
@@ -77,4 +76,4 @@ const PajamasWomen = () => {
     </div>
   );
 };
-export default PajamasWomen;
+export default SetMan;

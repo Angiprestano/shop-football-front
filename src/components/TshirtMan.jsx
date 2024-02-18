@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
-import { getTshirtMan } from "../Redux/action";
+import { ActionTypes, getTshirtMan } from "../Redux/action";
 import { useEffect } from "react";
-import { Card, Col, Container, ListGroup, Row } from "react-bootstrap";
+import { Button, Card, Col, Container, ListGroup, Row } from "react-bootstrap";
 
 const TshirtMan = () => {
   const token = useSelector((state) => state.token);
@@ -17,7 +17,7 @@ const TshirtMan = () => {
 
   return (
     <div className="bg bg-primary-subtle">
-      <h4 className="ms-5 ps-3 pt-3 mb-4">Magliette per uomo</h4>
+      <h4 className="ms-5 ps-5 pt-3 mb-4 text-black">Magliette per uomo</h4>
       <Container>
         <Row>
           {tshirtMan ? (
@@ -54,6 +54,17 @@ const TshirtMan = () => {
                       Tipo di prodotto: {product.typeofProduct}
                     </ListGroup.Item>
                   </ListGroup>
+                  <Button
+                    className="ms-4 me-4 mt-2 mb-2 text-black border border-black bg bg-body-secondary "
+                    onClick={() => {
+                      dispatch({
+                        type: ActionTypes.ADD_CART,
+                        payload: product,
+                      });
+                    }}
+                  >
+                    Aggiungi al carrello
+                  </Button>
                 </Card>
               </Col>
             ))

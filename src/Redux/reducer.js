@@ -16,11 +16,18 @@ const initialstate = {
   calcioWomen: null,
   suitMan: null,
   suitWomen: null,
+  cart: [],
   error: null,
 };
 console.log(initialstate);
 const reducer = (state = initialstate, action) => {
   switch (action.type) {
+    case ActionTypes.ADD_CART:
+      return {
+        ...state,
+        cart: [...state.cart, action.payload],
+      };
+
     case ActionTypes.SET_USER_TOKEN:
       return {
         ...state,
