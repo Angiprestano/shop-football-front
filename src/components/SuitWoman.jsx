@@ -16,7 +16,7 @@ const SuitWomen = () => {
   }, [dispatch, token]);
 
   return (
-    <div className="bg bg-primary-subtle">
+    <div className="">
       <h4 className="ms-5 ps-5 pt-2 mb-4">Tute Donna</h4>
       <Container>
         <Row>

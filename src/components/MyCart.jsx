@@ -1,9 +1,19 @@
 import { Card, Col, Row, ListGroup } from "react-bootstrap";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { addOrder } from "../Redux/action";
 
 const MyCart = () => {
   const token = useSelector((state) => state.token);
   const cart = useSelector((state) => state.cart);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const checkOutOrder = () => {
+    const listProduct = cart.map((product) => product.idProduct);
+    const body = { listProduct };
+    dispatch(addOrder(token, body));
+    navigate("/order");
+  };
 
   const total = () => {
     let total = 0;
@@ -54,6 +64,9 @@ const MyCart = () => {
           <h5 className="f fs-4 mt-5 ms-4">
             Totale da pagare= €{total().toFixed(2)}
           </h5>
+          <button onClick={checkOutOrder} className="bg bg-body-secondary ms-4">
+            CheckOut
+          </button>
         </div>
       ) : (
         <p>total={total}</p>

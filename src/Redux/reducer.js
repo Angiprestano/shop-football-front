@@ -14,9 +14,13 @@ const initialstate = {
   pajamasKids: null,
   calcioMan: null,
   calcioWomen: null,
+  calcioKids: null,
   suitMan: null,
+  pantsMan: null,
+  suitKids: null,
   suitWomen: null,
   cart: [],
+  order: [],
   error: null,
 };
 console.log(initialstate);
@@ -33,10 +37,35 @@ const reducer = (state = initialstate, action) => {
         ...state,
         token: action.payload,
       };
+
+    case ActionTypes.SET_ORDERS:
+      return {
+        ...state,
+        order: action.payload,
+      };
+
     case ActionTypes.SET_TSHIRT_MAN:
       return {
         ...state,
         tshirtMan: action.payload,
+      };
+
+    case ActionTypes.SET_SUIT_KIDS:
+      return {
+        ...state,
+        suitKids: action.payload,
+      };
+
+    case ActionTypes.SET_CALCIO_KIDS:
+      return {
+        ...state,
+        calcioKids: action.payload,
+      };
+
+    case ActionTypes.SET_PANTS_MAN:
+      return {
+        ...state,
+        pantsMan: action.payload,
       };
 
     case ActionTypes.SET_TSHIRT_WOMEN:

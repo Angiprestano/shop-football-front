@@ -81,7 +81,7 @@ const OneNavbar = () => {
                         <Link to="/sweatshirtMan" className="dropdown-item">
                           Felpe
                         </Link>
-                        <Link to="/action3" className="dropdown-item">
+                        <Link to="/pantsMan" className="dropdown-item">
                           Pantaloni
                         </Link>
                         <Link to="/suitMan" className="dropdown-item">
@@ -120,14 +120,14 @@ const OneNavbar = () => {
                         <Link to="/felpaKids" className="dropdown-item">
                           Felpe
                         </Link>
-                        <Link to="/action13" className="dropdown-item">
-                          Pantaloni
-                        </Link>
-                        <Link to="/action14" className="dropdown-item">
+                        <Link to="/suitKids" className="dropdown-item">
                           Tute
                         </Link>
                         <Link to="/pajamasKids" className="dropdown-item">
                           Pigiami
+                        </Link>
+                        <Link to="/setKids" className="dropdown-item">
+                          Set Calcio
                         </Link>
                       </Col>
                     </Row>

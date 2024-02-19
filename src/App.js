@@ -21,6 +21,10 @@ import PajamasKids from "./components/PajamasKids";
 import SetWomen from "./components/SetWomen";
 import SetMan from "./components/SetMan";
 import MyCart from "./components/MyCart";
+import PantsMan from "./components/PantsMan";
+import SuitKids from "./components/SuitKids";
+import SetKids from "./components/SetKids";
+import Orders from "./components/Orders";
 
 function App() {
   const [jwtToken, setJwtToken] = useState(null);
@@ -56,7 +60,11 @@ function App() {
           <Route path="/pajamasKids" element={<PajamasKids />}></Route>
           <Route path="/setDonna" element={<SetWomen />}></Route>
           <Route path="/setUomo" element={<SetMan />}></Route>
+          <Route path="/pantsMan" element={<PantsMan />}></Route>
+          <Route path="/suitKids" element={<SuitKids />}></Route>
+          <Route path="/setKids" element={<SetKids />}></Route>
           <Route path="/cart" element={<MyCart />}></Route>
+          <Route path="/order" element={<Orders />}></Route>
         </Routes>
       </div>
     </BrowserRouter>

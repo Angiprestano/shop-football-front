@@ -16,7 +16,7 @@ const SweatShirtWomen = () => {
   }, [dispatch, token]);
 
   return (
-    <div className="bg bg-primary-subtle">
+    <div className="">
       <h4 className="ms-5 ps-5 pt-3 mb-4">Felpe Donna</h4>
       <Container>
         <Row>

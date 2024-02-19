@@ -57,3 +57,23 @@
   background-color: rgb(33, 33, 139);
 }
 
+
+.custom-carousel-image {
+  margin-top: 30px;
+  margin-bottom: 40;
+  width: 100%; /* Larghezza massima */
+  height: 300px; /* Altezza desiderata */
+  object-fit: cover; /* Per mantenere l'aspect ratio */
+}
+
+
+.carouselImage {
+  width: auto; /* Larghezza del carousel */
+  height: auto; /* Altezza del carousel */
+}
+
+
+.custom-carousel-container {
+  width: 100%; /* Larghezza del carousel */
+  height: 800px; /* Altezza desiderata */
+}

@@ -1,27 +1,27 @@
 import { useDispatch, useSelector } from "react-redux";
-import { ActionTypes, getTshirtKids } from "../Redux/action";
+import { ActionTypes, getPantsMan } from "../Redux/action";
 import { useEffect } from "react";
 import { Button, Card, Col, Container, ListGroup, Row } from "react-bootstrap";
 
-const TshirtKids = () => {
+const PantsMan = () => {
   const token = useSelector((state) => state.token);
-  const tshirtKids = useSelector((state) => state.tshirtKids);
+  const pantsMan = useSelector((state) => state.pantsMan);
   const dispatch = useDispatch();
 
   useEffect(() => {
     if (token) {
-      dispatch(getTshirtKids(token));
+      dispatch(getPantsMan(token));
       console.log("ecco il token", token);
     }
   }, [dispatch, token]);
 
   return (
     <div className="">
-      <h4 className="ms-5 ps-3 pt-3 mb-4">Magliette per bambino</h4>
+      <h4 className="ms-5 ps-3 pt-3 mb-4">Pantaloni per Uomo</h4>
       <Container>
         <Row>
-          {tshirtKids ? (
-            tshirtKids.map((product, index) => (
+          {pantsMan ? (
+            pantsMan.map((product, index) => (
               <Col md={3} key={index}>
                 <Card style={{ width: "15rem", marginBottom: "20px" }}>
                   <Card.Img
@@ -76,4 +76,4 @@ const TshirtKids = () => {
     </div>
   );
 };
-export default TshirtKids;
+export default PantsMan;

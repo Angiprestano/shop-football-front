@@ -16,7 +16,7 @@ const TshirtMan = () => {
   }, [dispatch, token]);
 
   return (
-    <div className="bg bg-primary-subtle">
+    <div>
       <h4 className="ms-5 ps-5 pt-3 mb-4 text-black">Magliette per uomo</h4>
       <Container>
         <Row>

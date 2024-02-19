@@ -16,7 +16,7 @@ const PajamasKids = () => {
   }, [dispatch, token]);
 
   return (
-    <div className="bg bg-primary-subtle">
+    <div className="">
       <h4 className="ms-5 ps-3 pt-3 mb-4">Pigiami per bambini</h4>
       <Container>
         <Row>
