@@ -1,27 +1,27 @@
 import { useDispatch, useSelector } from "react-redux";
-import { ActionTypes, getTshirtMan } from "../Redux/action";
+import { ActionTypes, getCalcioKids } from "../../Redux/action";
 import { useEffect } from "react";
 import { Button, Card, Col, Container, ListGroup, Row } from "react-bootstrap";
 
-const TshirtMan = () => {
+const SetKids = () => {
   const token = useSelector((state) => state.token);
-  const tshirtMan = useSelector((state) => state.tshirtMan);
+  const calcioKids = useSelector((state) => state.calcioKids);
   const dispatch = useDispatch();
 
   useEffect(() => {
     if (token) {
-      dispatch(getTshirtMan(token));
+      dispatch(getCalcioKids(token));
       console.log("ecco il token", token);
     }
   }, [dispatch, token]);
 
   return (
-    <div>
-      <h4 className="ms-5 ps-5 pt-3 mb-4 text-black">Magliette per uomo</h4>
+    <div className="">
+      <h4 className="ms-5 ps-3 pt-3 mb-4">Completi calcio bambini</h4>
       <Container>
         <Row>
-          {tshirtMan ? (
-            tshirtMan.map((product, index) => (
+          {calcioKids ? (
+            calcioKids.map((product, index) => (
               <Col md={3} key={index}>
                 <Card style={{ width: "15rem", marginBottom: "20px" }}>
                   <Card.Img
@@ -55,7 +55,7 @@ const TshirtMan = () => {
                     </ListGroup.Item>
                   </ListGroup>
                   <Button
-                    className="ms-4 me-4 mt-2 mb-2 text-black border border-black bg bg-body-secondary "
+                    className="ms-4 me-4 mt-2 mb-2 text-black border border-black bg bg-body-secondary custom-button "
                     onClick={() => {
                       dispatch({
                         type: ActionTypes.ADD_CART,
@@ -76,4 +76,4 @@ const TshirtMan = () => {
     </div>
   );
 };
-export default TshirtMan;
+export default SetKids;

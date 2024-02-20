@@ -1,7 +1,11 @@
 import { Card, Carousel, Container, ListGroup, Nav } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { getAccessories, getSuitMan, getSweatshirtMan } from "../Redux/action";
+import {
+  getAccessories,
+  getSuitMan,
+  getSweatshirtMan,
+} from "../../Redux/action";
 import { useEffect } from "react";
 
 const Homepage = () => {
@@ -44,42 +48,36 @@ const Homepage = () => {
         <Carousel.Item>
           <img
             className="d-block custom-carousel-image"
-            src="https://media.licdn.com/dms/image/C4D16AQGJyeDNKvpJIg/profile-displaybackgroundimage-shrink_200_800/0/1617180061625?e=2147483647&v=beta&t=3O1Gw_Z9TMiwz7bBGHZdaXk8R6IMQjGnZwIcfLsgHEs"
+            src="https://store.inter.it/on/demandware.static/-/Sites-inter-storefront-catalog-it/default/dw7cf90c59/BANNER_PAGE_DESKTOP_03.jpg"
             alt="First slide"
           />
         </Carousel.Item>
+
         <Carousel.Item>
           <img
             className="d-block custom-carousel-image"
-            src="https://intermilan.bynder.com/m/5dc759db3fbc63fa/webimage-KAIYUN_Press-Release-2.png"
-            alt="Second slide"
-          />
-        </Carousel.Item>
-        <Carousel.Item>
-          <img
-            className="d-block custom-carousel-image"
-            src="https://pbs.twimg.com/media/FFyJZBjXMAwhQAZ.jpg"
+            src="https://store.inter.it/dw/image/v2/BJBQ_PRD/on/demandware.static/-/Library-Sites-InterSharedLibrary/default/dw057a8701/images/slider/SUPERCOPPA_2024/LANDING_DESK_SUPERCOPPA.jpg"
             alt="Third slide"
           />
         </Carousel.Item>
         <Carousel.Item>
           <img
             className="d-block custom-carousel-image"
-            src="https://cdn.tuttosport.com/img/990/495/2023/05/11/091833837-95e60833-3269-457f-9b18-8f6511a05c86.jpg"
+            src="https://store.inter.it/on/demandware.static/-/Sites-inter-storefront-catalog-it/default/dwacfbd6df/BANNER_PAGE_DESKTOP_04.jpg"
             alt="Third slide"
           />
         </Carousel.Item>
         <Carousel.Item>
           <img
             className="d-block custom-carousel-image"
-            src="https://www.interclubcastellanza.it/public/news/02062023095005_ft_5421.jpg"
+            src="https://intermilan.bynder.com/m/36ac0d1150990a0c/webimage-Header_Sito_News.png"
             alt="Third slide"
           />
         </Carousel.Item>
         <Carousel.Item>
           <img
             className="d-block custom-carousel-image"
-            src="https://assets.goal.com/v3/assets/bltcc7a7ffd2fbf71f5/blt876a56b5f2f44a0d/6505efc0ced20829d20b6cbd/thuramhd.png?auto=webp&format=pjpg&width=3840&quality=60"
+            src="https://store.inter.it/dw/image/v2/BJBQ_PRD/on/demandware.static/-/Library-Sites-InterSharedLibrary/default/dw7357b861/images/CONCORSO_INTER_NAPOLI/GLOBAL_LANDING_DESKTOP_Promo-Contest_Inter-Napoli_ENG.jpg"
             alt="Third slide"
           />
         </Carousel.Item>
@@ -179,7 +177,7 @@ const Homepage = () => {
         </Container>
 
         <Link to="/sweatshirtMan" style={{ textDecoration: "none" }}>
-          <h4 className="mt-4 pt-2 text-center mb-4 text-black">Felpe Uomo</h4>
+          <h4 className="mt-4 pt-2 text-center mb-4 text-black">Felpe uomo</h4>
         </Link>
         <Container>
           <Carousel>

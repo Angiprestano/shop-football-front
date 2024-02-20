@@ -1,27 +1,27 @@
 import { useDispatch, useSelector } from "react-redux";
-import { ActionTypes, getCalcioKids } from "../Redux/action";
+import { ActionTypes, getAccessories } from "../../Redux/action";
 import { useEffect } from "react";
 import { Button, Card, Col, Container, ListGroup, Row } from "react-bootstrap";
 
-const SetKids = () => {
+const Accessories = () => {
   const token = useSelector((state) => state.token);
-  const calcioKids = useSelector((state) => state.calcioKids);
+  const accessories = useSelector((state) => state.accessories);
   const dispatch = useDispatch();
 
   useEffect(() => {
     if (token) {
-      dispatch(getCalcioKids(token));
+      dispatch(getAccessories(token));
       console.log("ecco il token", token);
     }
   }, [dispatch, token]);
 
   return (
-    <div className="">
-      <h4 className="ms-5 ps-3 pt-3 mb-4">Completi calcio bambini</h4>
+    <div>
+      <h4 className="ms-5 ps-5 mt-2 mb-4">Accessori</h4>
       <Container>
         <Row>
-          {calcioKids ? (
-            calcioKids.map((product, index) => (
+          {accessories ? (
+            accessories.map((product, index) => (
               <Col md={3} key={index}>
                 <Card style={{ width: "15rem", marginBottom: "20px" }}>
                   <Card.Img
@@ -42,6 +42,7 @@ const SetKids = () => {
                     <ListGroup.Item>
                       Prezzo: €{product.price.toFixed(2)}
                     </ListGroup.Item>
+
                     <ListGroup.Item>Colore:{product.color}</ListGroup.Item>
 
                     <ListGroup.Item>Taglia: {product.size}</ListGroup.Item>
@@ -76,4 +77,4 @@ const SetKids = () => {
     </div>
   );
 };
-export default SetKids;
+export default Accessories;

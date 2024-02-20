@@ -3,7 +3,7 @@ import { Container, Button, Row, Col } from "react-bootstrap";
 import Form from "react-bootstrap/Form";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { login } from "../Redux/action";
+import { login } from "../../Redux/action";
 
 const PageLogin = () => {
   const dispatch = useDispatch();

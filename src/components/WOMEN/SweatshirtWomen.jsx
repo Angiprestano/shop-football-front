@@ -1,27 +1,27 @@
 import { useDispatch, useSelector } from "react-redux";
-import { ActionTypes, getSuitWomen } from "../Redux/action";
+import { ActionTypes, getSweatshirtWomen } from "../../Redux/action";
 import { useEffect } from "react";
 import { Button, Card, Col, Container, ListGroup, Row } from "react-bootstrap";
 
-const SuitWomen = () => {
+const SweatShirtWomen = () => {
   const token = useSelector((state) => state.token);
-  const suitWomen = useSelector((state) => state.suitWomen);
+  const sweatshirtWomen = useSelector((state) => state.sweatshirtWomen);
   const dispatch = useDispatch();
 
   useEffect(() => {
     if (token) {
-      dispatch(getSuitWomen(token));
+      dispatch(getSweatshirtWomen(token));
       console.log("ecco il token", token);
     }
   }, [dispatch, token]);
 
   return (
     <div className="">
-      <h4 className="ms-5 ps-5 pt-2 mb-4">Tute Donna</h4>
+      <h4 className="ms-5 ps-5 pt-3 mb-4">Felpe Donna</h4>
       <Container>
         <Row>
-          {suitWomen ? (
-            suitWomen.map((product, index) => (
+          {sweatshirtWomen ? (
+            sweatshirtWomen.map((product, index) => (
               <Col md={3} key={index}>
                 <Card style={{ width: "15rem", marginBottom: "20px" }}>
                   <Card.Img
@@ -56,7 +56,7 @@ const SuitWomen = () => {
                     </ListGroup.Item>
                   </ListGroup>
                   <Button
-                    className="ms-4 me-4 mt-2 mb-2 text-black border border-black bg bg-body-secondary "
+                    className="ms-4 me-4 mt-2 mb-2 text-black border border-black bg bg-body-secondary custom-button "
                     onClick={() => {
                       dispatch({
                         type: ActionTypes.ADD_CART,
@@ -77,4 +77,4 @@ const SuitWomen = () => {
     </div>
   );
 };
-export default SuitWomen;
+export default SweatShirtWomen;

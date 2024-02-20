@@ -1,7 +1,7 @@
 import { Card, Col, Row, ListGroup } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { addOrder } from "../Redux/action";
+import { ActionTypes, addOrder } from "../../Redux/action";
 
 const MyCart = () => {
   const token = useSelector((state) => state.token);
@@ -11,19 +11,28 @@ const MyCart = () => {
   const checkOutOrder = () => {
     const listProduct = cart.map((product) => product.idProduct);
     const body = { listProduct };
-    dispatch(addOrder(token, body));
-    navigate("/order");
+    dispatch(addOrder(token, body)).then((data) => {
+      console.log(data);
+      navigate("/order/" + data);
+    });
+    dispatch({ type: ActionTypes.EMPTY_CART });
   };
 
   const total = () => {
+    if (!cart || cart.length === 0) {
+      return 0;
+    }
+
     let total = 0;
     for (let i = 0; i < cart.length; i++) {
-      total += cart[i].price;
+      if (cart[i] && cart[i].price) {
+        total += cart[i].price;
+      }
     }
-    return total;
+    return typeof total === "number" ? total : 0;
   };
-
   console.log(total());
+
   return (
     <div>
       {cart ? (

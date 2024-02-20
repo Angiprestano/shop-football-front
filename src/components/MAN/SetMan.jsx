@@ -1,27 +1,27 @@
 import { useDispatch, useSelector } from "react-redux";
-import { ActionTypes, getTshirtWomen } from "../Redux/action";
+import { ActionTypes, getCalcioMan } from "../../Redux/action";
 import { useEffect } from "react";
 import { Button, Card, Col, Container, ListGroup, Row } from "react-bootstrap";
 
-const TshirtWomen = () => {
+const SetMan = () => {
   const token = useSelector((state) => state.token);
-  const tshirtWomen = useSelector((state) => state.tshirtWomen);
+  const calcioMan = useSelector((state) => state.calcioMan);
   const dispatch = useDispatch();
 
   useEffect(() => {
     if (token) {
-      dispatch(getTshirtWomen(token));
+      dispatch(getCalcioMan(token));
       console.log("ecco il token", token);
     }
   }, [dispatch, token]);
 
   return (
     <div className="">
-      <h4 className="ms-5 ps-3 pt-3 mb-4">Magliette per Donna</h4>
+      <h4 className="ms-5 ps-3 pt-3 mb-4">Completi calcio per Uomo</h4>
       <Container>
         <Row>
-          {tshirtWomen ? (
-            tshirtWomen.map((product, index) => (
+          {calcioMan ? (
+            calcioMan.map((product, index) => (
               <Col md={3} key={index}>
                 <Card style={{ width: "15rem", marginBottom: "20px" }}>
                   <Card.Img
@@ -55,7 +55,7 @@ const TshirtWomen = () => {
                     </ListGroup.Item>
                   </ListGroup>
                   <Button
-                    className="ms-4 me-4 mt-2 mb-2 text-black border border-black bg bg-body-secondary "
+                    className="ms-4 me-4 mt-2 mb-2 text-black border border-black bg bg-body-secondary custom-button"
                     onClick={() => {
                       dispatch({
                         type: ActionTypes.ADD_CART,
@@ -76,4 +76,4 @@ const TshirtWomen = () => {
     </div>
   );
 };
-export default TshirtWomen;
+export default SetMan;

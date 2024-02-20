@@ -1,27 +1,28 @@
 import { useDispatch, useSelector } from "react-redux";
-import { ActionTypes, getPajamasMan } from "../Redux/action";
+import { ActionTypes, getFelpaKids } from "../../Redux/action";
 import { useEffect } from "react";
 import { Button, Card, Col, Container, ListGroup, Row } from "react-bootstrap";
 
-const PajamasMan = () => {
+const FelpaKids = () => {
   const token = useSelector((state) => state.token);
-  const pajamasMan = useSelector((state) => state.pajamasMan);
+  const felpaKids = useSelector((state) => state.felpaKids);
+  const cartId = useSelector((state) => (state.cart ? state.cart.id : null));
   const dispatch = useDispatch();
 
   useEffect(() => {
     if (token) {
-      dispatch(getPajamasMan(token));
+      dispatch(getFelpaKids(token));
       console.log("ecco il token", token);
     }
   }, [dispatch, token]);
 
   return (
     <div className="">
-      <h4 className="ms-5 ps-3 pt-3 mb-4">Pigiami Uomo</h4>
+      <h4 className="ms-5 ps-3 pt-3 mb-4">Felpe per bambini</h4>
       <Container>
         <Row>
-          {pajamasMan ? (
-            pajamasMan.map((product, index) => (
+          {felpaKids ? (
+            felpaKids.map((product, index) => (
               <Col md={3} key={index}>
                 <Card style={{ width: "15rem", marginBottom: "20px" }}>
                   <Card.Img
@@ -42,7 +43,6 @@ const PajamasMan = () => {
                     <ListGroup.Item>
                       Prezzo: €{product.price.toFixed(2)}
                     </ListGroup.Item>
-
                     <ListGroup.Item>Colore:{product.color}</ListGroup.Item>
 
                     <ListGroup.Item>Taglia: {product.size}</ListGroup.Item>
@@ -55,17 +55,19 @@ const PajamasMan = () => {
                       Tipo di prodotto: {product.typeofProduct}
                     </ListGroup.Item>
                   </ListGroup>
-                  <Button
-                    className="ms-4 me-4 mt-2 mb-2 text-black border border-black bg bg-body-secondary "
-                    onClick={() => {
-                      dispatch({
-                        type: ActionTypes.ADD_CART,
-                        payload: product,
-                      });
-                    }}
-                  >
-                    Aggiungi al carrello
-                  </Button>
+                  <Card.Body>
+                    <Button
+                      className="ms-4 me-4 mt-2 mb-2 text-black border border-black bg bg-body-secondary "
+                      onClick={() => {
+                        dispatch({
+                          type: ActionTypes.ADD_CART,
+                          payload: product,
+                        });
+                      }}
+                    >
+                      Aggiungi al carrello
+                    </Button>
+                  </Card.Body>
                 </Card>
               </Col>
             ))
@@ -77,4 +79,4 @@ const PajamasMan = () => {
     </div>
   );
 };
-export default PajamasMan;
+export default FelpaKids;

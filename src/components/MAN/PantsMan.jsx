@@ -1,27 +1,27 @@
 import { useDispatch, useSelector } from "react-redux";
-import { ActionTypes, getSuitKids } from "../Redux/action";
+import { ActionTypes, getPantsMan } from "../../Redux/action";
 import { useEffect } from "react";
 import { Button, Card, Col, Container, ListGroup, Row } from "react-bootstrap";
 
-const SuitKids = () => {
+const PantsMan = () => {
   const token = useSelector((state) => state.token);
-  const suitKids = useSelector((state) => state.suitKids);
+  const pantsMan = useSelector((state) => state.pantsMan);
   const dispatch = useDispatch();
 
   useEffect(() => {
     if (token) {
-      dispatch(getSuitKids(token));
+      dispatch(getPantsMan(token));
       console.log("ecco il token", token);
     }
   }, [dispatch, token]);
 
   return (
     <div className="">
-      <h4 className="ms-5 ps-3 pt-3 mb-4">Tute per bambini</h4>
+      <h4 className="ms-5 ps-3 pt-3 mb-4">Pantaloni per Uomo</h4>
       <Container>
         <Row>
-          {suitKids ? (
-            suitKids.map((product, index) => (
+          {pantsMan ? (
+            pantsMan.map((product, index) => (
               <Col md={3} key={index}>
                 <Card style={{ width: "15rem", marginBottom: "20px" }}>
                   <Card.Img
@@ -55,7 +55,7 @@ const SuitKids = () => {
                     </ListGroup.Item>
                   </ListGroup>
                   <Button
-                    className="ms-4 me-4 mt-2 mb-2 text-black border border-black bg bg-body-secondary "
+                    className="ms-4 me-4 mt-2 mb-2 text-black border border-black bg bg-body-secondary custom-button "
                     onClick={() => {
                       dispatch({
                         type: ActionTypes.ADD_CART,
@@ -76,4 +76,4 @@ const SuitKids = () => {
     </div>
   );
 };
-export default SuitKids;
+export default PantsMan;

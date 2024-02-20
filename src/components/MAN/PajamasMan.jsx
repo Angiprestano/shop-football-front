@@ -1,27 +1,27 @@
 import { useDispatch, useSelector } from "react-redux";
-import { ActionTypes, getPajamasKids } from "../Redux/action";
+import { ActionTypes, getPajamasMan } from "../../Redux/action";
 import { useEffect } from "react";
 import { Button, Card, Col, Container, ListGroup, Row } from "react-bootstrap";
 
-const PajamasKids = () => {
+const PajamasMan = () => {
   const token = useSelector((state) => state.token);
-  const pajamasKids = useSelector((state) => state.pajamasKids);
+  const pajamasMan = useSelector((state) => state.pajamasMan);
   const dispatch = useDispatch();
 
   useEffect(() => {
     if (token) {
-      dispatch(getPajamasKids(token));
+      dispatch(getPajamasMan(token));
       console.log("ecco il token", token);
     }
   }, [dispatch, token]);
 
   return (
     <div className="">
-      <h4 className="ms-5 ps-3 pt-3 mb-4">Pigiami per bambini</h4>
+      <h4 className="ms-5 ps-3 pt-3 mb-4">Pigiami Uomo</h4>
       <Container>
         <Row>
-          {pajamasKids ? (
-            pajamasKids.map((product, index) => (
+          {pajamasMan ? (
+            pajamasMan.map((product, index) => (
               <Col md={3} key={index}>
                 <Card style={{ width: "15rem", marginBottom: "20px" }}>
                   <Card.Img
@@ -42,6 +42,7 @@ const PajamasKids = () => {
                     <ListGroup.Item>
                       Prezzo: €{product.price.toFixed(2)}
                     </ListGroup.Item>
+
                     <ListGroup.Item>Colore:{product.color}</ListGroup.Item>
 
                     <ListGroup.Item>Taglia: {product.size}</ListGroup.Item>
@@ -55,7 +56,7 @@ const PajamasKids = () => {
                     </ListGroup.Item>
                   </ListGroup>
                   <Button
-                    className="ms-4 me-4 mt-2 mb-2 text-black border border-black bg bg-body-secondary "
+                    className="ms-4 me-4 mt-2 mb-2 text-black border border-black bg bg-body-secondary custom-button"
                     onClick={() => {
                       dispatch({
                         type: ActionTypes.ADD_CART,
@@ -76,4 +77,4 @@ const PajamasKids = () => {
     </div>
   );
 };
-export default PajamasKids;
+export default PajamasMan;

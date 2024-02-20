@@ -1,28 +1,27 @@
 import { useDispatch, useSelector } from "react-redux";
-import { ActionTypes, getFelpaKids } from "../Redux/action";
+import { ActionTypes, getSalesTshirt } from "../../Redux/action";
 import { useEffect } from "react";
 import { Button, Card, Col, Container, ListGroup, Row } from "react-bootstrap";
 
-const FelpaKids = () => {
+const SaleTshirt = () => {
   const token = useSelector((state) => state.token);
-  const felpaKids = useSelector((state) => state.felpaKids);
-  const cartId = useSelector((state) => (state.cart ? state.cart.id : null));
+  const salesTshirt = useSelector((state) => state.salesTshirt);
   const dispatch = useDispatch();
 
   useEffect(() => {
     if (token) {
-      dispatch(getFelpaKids(token));
+      dispatch(getSalesTshirt(token));
       console.log("ecco il token", token);
     }
   }, [dispatch, token]);
 
   return (
-    <div className="bg bg-primary-subtle">
-      <h4 className="ms-5 ps-3 pt-3 mb-4">Felpe per bambini</h4>
+    <div>
+      <h4 className="text-center pt-3 mb-4 text-black">Sconti</h4>
       <Container>
         <Row>
-          {felpaKids ? (
-            felpaKids.map((product, index) => (
+          {salesTshirt ? (
+            salesTshirt.map((product, index) => (
               <Col md={3} key={index}>
                 <Card style={{ width: "15rem", marginBottom: "20px" }}>
                   <Card.Img
@@ -40,7 +39,7 @@ const FelpaKids = () => {
                     </Card.Text>
                   </Card.Body>
                   <ListGroup className="list-group-flush">
-                    <ListGroup.Item>
+                    <ListGroup.Item className="text-danger fw-bold">
                       Prezzo: €{product.price.toFixed(2)}
                     </ListGroup.Item>
                     <ListGroup.Item>Colore:{product.color}</ListGroup.Item>
@@ -55,19 +54,17 @@ const FelpaKids = () => {
                       Tipo di prodotto: {product.typeofProduct}
                     </ListGroup.Item>
                   </ListGroup>
-                  <Card.Body>
-                    <Button
-                      className="ms-4 me-4 mt-2 mb-2 text-black border border-black bg bg-body-secondary "
-                      onClick={() => {
-                        dispatch({
-                          type: ActionTypes.ADD_CART,
-                          payload: product,
-                        });
-                      }}
-                    >
-                      Aggiungi al carrello
-                    </Button>
-                  </Card.Body>
+                  <Button
+                    className="ms-4 me-4 mt-2 mb-2 text-black border border-black bg bg-body-secondary custom-button"
+                    onClick={() => {
+                      dispatch({
+                        type: ActionTypes.ADD_CART,
+                        payload: product,
+                      });
+                    }}
+                  >
+                    Aggiungi al carrello
+                  </Button>
                 </Card>
               </Col>
             ))
@@ -79,4 +76,4 @@ const FelpaKids = () => {
     </div>
   );
 };
-export default FelpaKids;
+export default SaleTshirt;

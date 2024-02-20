@@ -1,27 +1,27 @@
 import { useDispatch, useSelector } from "react-redux";
-import { ActionTypes, getCalcioWomen } from "../Redux/action";
+import { ActionTypes, getSuitWomen } from "../../Redux/action";
 import { useEffect } from "react";
 import { Button, Card, Col, Container, ListGroup, Row } from "react-bootstrap";
 
-const SetWomen = () => {
+const SuitWomen = () => {
   const token = useSelector((state) => state.token);
-  const calcioWomen = useSelector((state) => state.calcioWomen);
+  const suitWomen = useSelector((state) => state.suitWomen);
   const dispatch = useDispatch();
 
   useEffect(() => {
     if (token) {
-      dispatch(getCalcioWomen(token));
+      dispatch(getSuitWomen(token));
       console.log("ecco il token", token);
     }
   }, [dispatch, token]);
 
   return (
     <div className="">
-      <h4 className="ms-5 ps-3 pt-3 mb-4">Completi calcio per Donna</h4>
+      <h4 className="ms-5 ps-5 pt-2 mb-4">Tute Donna</h4>
       <Container>
         <Row>
-          {calcioWomen ? (
-            calcioWomen.map((product, index) => (
+          {suitWomen ? (
+            suitWomen.map((product, index) => (
               <Col md={3} key={index}>
                 <Card style={{ width: "15rem", marginBottom: "20px" }}>
                   <Card.Img
@@ -42,6 +42,7 @@ const SetWomen = () => {
                     <ListGroup.Item>
                       Prezzo: €{product.price.toFixed(2)}
                     </ListGroup.Item>
+
                     <ListGroup.Item>Colore:{product.color}</ListGroup.Item>
 
                     <ListGroup.Item>Taglia: {product.size}</ListGroup.Item>
@@ -55,7 +56,7 @@ const SetWomen = () => {
                     </ListGroup.Item>
                   </ListGroup>
                   <Button
-                    className="ms-4 me-4 mt-2 mb-2 text-black border border-black bg bg-body-secondary "
+                    className="ms-4 me-4 mt-2 mb-2 text-black border border-black bg bg-body-secondary custom-button"
                     onClick={() => {
                       dispatch({
                         type: ActionTypes.ADD_CART,
@@ -76,4 +77,4 @@ const SetWomen = () => {
     </div>
   );
 };
-export default SetWomen;
+export default SuitWomen;

@@ -1,30 +1,31 @@
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-import PageLogin from "./components/PageLogin";
+import PageLogin from "./components/PAGE/PageLogin";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Register from "./components/Register";
-import Homepage from "./components/Home";
-import OneNavbar from "./components/OneNavbar";
-import TshirtMan from "./components/TshirtMan";
+import Register from "./components/PAGE/Register";
+import Homepage from "./components/PAGE/Home";
+import OneNavbar from "./components/PAGE/OneNavbar";
+import TshirtMan from "./components/MAN/TshirtMan";
 import { useEffect, useState } from "react";
-import Accessories from "./components/Accessories";
-import SweatShirtMan from "./components/SweatshirtMan";
-import SweatShirtWomen from "./components/SweatshirtWomen";
-import PajamasWomen from "./components/PajamasWomen";
-import PajamasMan from "./components/PajamasMan";
-import SuitMan from "./components/SuitMan";
-import SuitWomen from "./components/SuitWoman";
-import TshirtWomen from "./components/TshirtWomen";
-import TshirtKids from "./components/TshirtKids";
-import FelpaKids from "./components/FelpaKids";
-import PajamasKids from "./components/PajamasKids";
-import SetWomen from "./components/SetWomen";
-import SetMan from "./components/SetMan";
-import MyCart from "./components/MyCart";
-import PantsMan from "./components/PantsMan";
-import SuitKids from "./components/SuitKids";
-import SetKids from "./components/SetKids";
-import Orders from "./components/Orders";
+import Accessories from "./components/PAGE/Accessories";
+import SweatShirtMan from "./components/MAN/SweatshirtMan";
+import SweatShirtWomen from "./components/WOMEN/SweatshirtWomen";
+import PajamasWomen from "./components/WOMEN/PajamasWomen";
+import PajamasMan from "./components/MAN/PajamasMan";
+import SuitMan from "./components/MAN/SuitMan";
+import SuitWomen from "./components/WOMEN/SuitWoman";
+import TshirtWomen from "./components/WOMEN/TshirtWomen";
+import TshirtKids from "./components/KIDS/TshirtKids";
+import FelpaKids from "./components/KIDS/FelpaKids";
+import PajamasKids from "./components/KIDS/PajamasKids";
+import SetWomen from "./components/WOMEN/SetWomen";
+import SetMan from "./components/MAN/SetMan";
+import MyCart from "./components/PAGE/MyCart";
+import PantsMan from "./components/MAN/PantsMan";
+import SuitKids from "./components/KIDS/SuitKids";
+import SetKids from "./components/KIDS/SetKids";
+import Orders from "./components/PAGE/Orders";
+import SaleTshirt from "./components/PAGE/SaleTshirt";
 
 function App() {
   const [jwtToken, setJwtToken] = useState(null);
@@ -64,7 +65,8 @@ function App() {
           <Route path="/suitKids" element={<SuitKids />}></Route>
           <Route path="/setKids" element={<SetKids />}></Route>
           <Route path="/cart" element={<MyCart />}></Route>
-          <Route path="/order" element={<Orders />}></Route>
+          <Route path="/order/:id" element={<Orders />}></Route>
+          <Route path="/salesTshirt" element={<SaleTshirt />}></Route>
         </Routes>
       </div>
     </BrowserRouter>

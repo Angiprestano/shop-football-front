@@ -57,7 +57,6 @@
   background-color: rgb(33, 33, 139);
 }
 
-
 .custom-carousel-image {
   margin-top: 30px;
   margin-bottom: 40;
@@ -65,7 +64,6 @@
   height: 300px; /* Altezza desiderata */
   object-fit: cover; /* Per mantenere l'aspect ratio */
 }
-
 
 .carouselImage {
   width: auto; /* Larghezza del carousel */
@@ -76,4 +74,18 @@
 .custom-carousel-container {
   width: 100%; /* Larghezza del carousel */
   height: 800px; /* Altezza desiderata */
+}
+
+.custom-button:hover {
+  opacity: 0.6;
+  transition: opacity 0.3s ease;
+  
+}
+
+/* Animazione di ingrandimento del bottone al clic */
+.custom-button:active {
+  
+  transform: scale(0.95);
+  transition: transform 0.3s ease;
+ 
 }

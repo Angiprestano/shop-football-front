@@ -4,6 +4,7 @@ const initialstate = {
   token: localStorage.getItem("token") || null,
   tshirtMan: null,
   tshirtWomen: null,
+  salesTshirt: null,
   accessories: null,
   sweatshirtMan: null,
   sweatshirtWomen: null,
@@ -20,12 +21,25 @@ const initialstate = {
   suitKids: null,
   suitWomen: null,
   cart: [],
-  order: [],
+  order: {},
+  lastOrder: null,
   error: null,
 };
 console.log(initialstate);
 const reducer = (state = initialstate, action) => {
   switch (action.type) {
+    case ActionTypes.EMPTY_CART:
+      return {
+        ...state,
+        cart: [],
+      };
+
+    case ActionTypes.ADD_LAST_ORDER:
+      return {
+        ...state,
+        lastOrder: action.payload,
+      };
+
     case ActionTypes.ADD_CART:
       return {
         ...state,
@@ -42,6 +56,12 @@ const reducer = (state = initialstate, action) => {
       return {
         ...state,
         order: action.payload,
+      };
+
+    case ActionTypes.SET_SALES_TSHIRT:
+      return {
+        ...state,
+        salesTshirt: action.payload,
       };
 
     case ActionTypes.SET_TSHIRT_MAN:
@@ -97,16 +117,19 @@ const reducer = (state = initialstate, action) => {
         ...state,
         sweatshirtMan: action.payload,
       };
+
     case ActionTypes.SET_SWEATSHIRT_WOMEN:
       return {
         ...state,
         sweatshirtWomen: action.payload,
       };
+
     case ActionTypes.SET_PAJAMAS_MAN:
       return {
         ...state,
         pajamasMan: action.payload,
       };
+
     case ActionTypes.SET_PAJAMAS_WOMEN:
       return {
         ...state,
@@ -142,11 +165,13 @@ const reducer = (state = initialstate, action) => {
         ...state,
         accessories: action.payload,
       };
+
     case ActionTypes.SET_ERROR:
       return {
         ...state,
         error: action.payload,
       };
+
     case LOGIN:
       return {
         ...state,

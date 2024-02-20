@@ -26,10 +26,13 @@ export const ActionTypes = {
   ADD_CART: "ADD_CART",
   SET_ORDERS: "SET_ORDERS",
   ADD_ORDER: "ADD_ORDER",
+  ADD_LAST_ORDER: "ADD_LAST_ORDER",
+  EMPTY_CART: "EMPTY_CART",
 
   SET_USER_TOKEN: "SET_USER_TOKEN",
   LOGOUT_USER: "LOGOUT_USER",
   SET_ERROR: "SET_ERROR",
+  SET_SALES_TSHIRT: "SET_SALES_TSHIRT",
 };
 
 export const setError = (errorMessage) => ({
@@ -64,6 +67,11 @@ export const setTshirtMan = (tshirtMan) => ({
 export const setPantsMan = (pantsMan) => ({
   type: ActionTypes.SET_PANTS_MAN,
   payload: pantsMan,
+});
+
+export const setSalesTshirt = (salesTshirt) => ({
+  type: ActionTypes.SET_SALES_TSHIRT,
+  payload: salesTshirt,
 });
 
 export const setSuitKids = (suitKids) => ({
@@ -256,7 +264,9 @@ export const addOrder = (token, body) => {
       if (res.ok) {
         const data = await res.json();
         console.log(data);
-        dispatch({ type: ActionTypes.ADD_CART, payload: data });
+
+        localStorage.setItem("id", data.id);
+        return localStorage.getItem("id");
       } else {
         throw new Error("Something went wrong.");
       }
@@ -889,6 +899,53 @@ export const getTshirtKids = (token) => async (dispatch) => {
     if (response.ok) {
       const data = await response.json();
       dispatch(setTshirtKids(data));
+      console.log("Dati ricevuti:", data);
+      return data;
+    } else {
+      const errorMessage = await response.text();
+      if (response.status === 401) {
+        dispatch({
+          type: ActionTypes.SET_ERROR,
+          payload:
+            "Token JWT non valido o scaduto. Effettua di nuovo l'accesso.",
+        });
+      } else {
+        dispatch({
+          type: ActionTypes.SET_ERROR,
+          payload:
+            errorMessage ||
+            "Errore durante la richiesta dei dati delle magliette uomo",
+        });
+      }
+      throw new Error(
+        errorMessage ||
+          "Errore durante la richiesta dei dati delle magliette uomo"
+      );
+    }
+  } catch (error) {
+    console.error("Errore:", error);
+
+    dispatch({
+      type: ActionTypes.SET_ERROR,
+      payload:
+        error.message ||
+        "Errore durante la richiesta dei dati delle magliette uomo",
+    });
+  }
+};
+
+export const getSalesTshirt = (token) => async (dispatch) => {
+  const URL = "http://localhost:3001/products/sale/tshirt";
+  try {
+    const response = await fetch(URL, {
+      method: "GET",
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+    if (response.ok) {
+      const data = await response.json();
+      dispatch(setSalesTshirt(data));
       console.log("Dati ricevuti:", data);
       return data;
     } else {

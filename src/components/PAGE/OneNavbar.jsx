@@ -166,6 +166,15 @@ const OneNavbar = () => {
                 Accessori
               </Nav.Link>
             </OverlayTrigger>
+            <OverlayTrigger
+              trigger="click"
+              placement="bottom"
+              overlay={<Popover></Popover>}
+            >
+              <Nav.Link href="/salesTshirt" className="text-danger fw-bold ">
+                Sconti
+              </Nav.Link>
+            </OverlayTrigger>
           </Nav>
         </Navbar.Collapse>
         <Form onSubmit={handleSubmit} inline>
