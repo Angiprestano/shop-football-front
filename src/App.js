@@ -26,6 +26,7 @@ import SuitKids from "./components/KIDS/SuitKids";
 import SetKids from "./components/KIDS/SetKids";
 import Orders from "./components/PAGE/Orders";
 import SaleTshirt from "./components/PAGE/SaleTshirt";
+import PaypalPayment from "./components/PaypalPayment";
 
 function App() {
   const [jwtToken, setJwtToken] = useState(null);
