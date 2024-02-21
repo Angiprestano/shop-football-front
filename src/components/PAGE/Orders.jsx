@@ -7,8 +7,12 @@ const Orders = () => {
   const param = useParams();
   const [lastOrder, setlastOrder] = useState(null);
 
+  console.log("Parametri dell'URL:", param);
+
   const getlastOrder = () => {
-    const URL = "http://localhost:3001/orders/" + param.id;
+    const URL = "http://localhost:3001/orders/" + param.idOrder;
+
+    console.log("URL della chiamata API:", URL);
 
     fetch(URL, {
       method: "GET",
@@ -37,13 +41,13 @@ const Orders = () => {
 
   return (
     <div>
-      {lastOrder ? (
+      {lastOrder !== null && Object.keys(lastOrder).length !== 0 ? (
         <div>
           <div>
             <h3>Ordine</h3>
-            <p>ID Ordine: {lastOrder.id}</p>
+            <p>ID Ordine: {lastOrder.idOrder}</p>
             <p>Totale da pagare: €{lastOrder.toPay}</p>
-            {lastOrder.utente && (
+            {lastOrder.user && (
               <div>
                 <p>
                   Utente: {lastOrder.user.name} {lastOrder.user.surname}

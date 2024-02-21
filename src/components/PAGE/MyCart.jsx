@@ -9,11 +9,15 @@ const MyCart = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const checkOutOrder = () => {
-    const listProduct = cart.map((product) => product.idProduct);
-    const body = { listProduct };
+    const body = { listProduct: [] };
+    for (let i = 0; i < cart.length; i++) {
+      body.listProduct.push(cart[i].id);
+    }
+    console.log(body);
+
     dispatch(addOrder(token, body)).then((data) => {
       console.log(data);
-      navigate("/order/" + data);
+      navigate("/orders/" + data);
     });
     dispatch({ type: ActionTypes.EMPTY_CART });
   };

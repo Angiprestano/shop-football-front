@@ -250,7 +250,7 @@ export const getOrders = (token) => async (dispatch) => {
 };
 
 export const addOrder = (token, body) => {
-  return async (dispatch) => {
+  return async () => {
     const URL = "http://localhost:3001/orders/creatOrder";
     try {
       const res = await fetch(URL, {
@@ -265,8 +265,7 @@ export const addOrder = (token, body) => {
         const data = await res.json();
         console.log(data);
 
-        localStorage.setItem("id", data.id);
-        return localStorage.getItem("id");
+        return data.idOrder;
       } else {
         throw new Error("Something went wrong.");
       }
