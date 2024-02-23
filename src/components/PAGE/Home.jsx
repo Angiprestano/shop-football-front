@@ -103,18 +103,22 @@ const Homepage = () => {
                 <Carousel.Item key={index}>
                   <div className="d-flex justify-content-between  align-items-center">
                     {chunk.map((product, idx) => (
-                      <Card key={idx} className="custom-card">
+                      <Card
+                        key={idx}
+                        className="col-12 col-sm-6 col-md-4 col-lg-3 custom-card"
+                      >
                         <Card.Img
+                          className="mt-3 ms-5"
                           variant="top"
                           src={product.image}
                           alt={product.title}
                           style={{
                             height: "180px",
-                            width: "190px",
+                            width: "220px",
                             objectFit: "cover",
                           }}
                         />
-                        <Card.Body>
+                        <Card.Body className="ms-3">
                           <Card.Title className="custom-card-title">
                             {product.title}
                           </Card.Title>
@@ -147,12 +151,18 @@ const Homepage = () => {
                 <Carousel.Item key={index}>
                   <div className="d-flex justify-content-between  align-items-center">
                     {chunk.map((product, idx) => (
-                      <Card key={idx} className="custom-card mx-4">
+                      <Card
+                        key={idx}
+                        className="col-12 col-sm-6 col-md-4 col-lg-2 custom-card mx-4 mt-2"
+                      >
                         <Card.Img
                           variant="top"
                           src={product.image}
                           alt={product.title}
-                          style={{ height: "150px", objectFit: "cover" }}
+                          style={{
+                            height: "210px",
+                            width: "210px",
+                          }}
                         />
                         <Card.Body>
                           <Card.Title className="custom-card-title">
@@ -186,7 +196,10 @@ const Homepage = () => {
                 <Carousel.Item key={index}>
                   <div className="d-flex justify-content-between  align-items-center">
                     {chunk.map((product, idx) => (
-                      <Card key={idx} className="custom-card mb-4 mx-3">
+                      <Card
+                        key={idx}
+                        className="col-12 col-sm-6 col-md-4 col-lg-2 custom-card mb-4 mx-3"
+                      >
                         <Card.Img
                           variant="top"
                           src={product.image}

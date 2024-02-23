@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
+import StripeOption1 from "../PAYMENT/StripeOption1";
 
 const Orders = () => {
   const token = useSelector((state) => state.token);
@@ -76,6 +77,12 @@ const Orders = () => {
                   </li>
                 ))}
             </ul>
+          </div>
+          <div className="w-100 text-center text-black">
+            <StripeOption1>
+              {" "}
+              priceId= "price_1OmZacGUnxyubwNLx6EGF4TP" buttonText= {"Go on"}
+            </StripeOption1>
           </div>
         </div>
       ) : (

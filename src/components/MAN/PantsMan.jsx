@@ -19,7 +19,7 @@ const PantsMan = () => {
     <div className="">
       <h4 className="ms-5 ps-3 pt-3 mb-4">Pantaloni per Uomo</h4>
       <Container>
-        <Row>
+        <Row xs={1} sm={2} md={3} lg={4} xl={4} xxl={5} className="g-4">
           {pantsMan ? (
             pantsMan.map((product, index) => (
               <Col md={3} key={index}>

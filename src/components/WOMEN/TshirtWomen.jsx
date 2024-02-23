@@ -19,7 +19,7 @@ const TshirtWomen = () => {
     <div className="">
       <h4 className="text-center pt-3 mb-4">Magliette per Donna</h4>
       <Container>
-        <Row>
+        <Row xs={1} sm={2} md={3} lg={4} xl={4} xxl={5} className="g-4">
           {tshirtWomen ? (
             tshirtWomen.map((product, index) => (
               <Col md={3} key={index}>

@@ -19,7 +19,7 @@ const SweatShirtWomen = () => {
     <div className="">
       <h4 className="ms-5 ps-5 pt-3 mb-4">Felpe Donna</h4>
       <Container>
-        <Row>
+        <Row xs={1} sm={2} md={3} lg={4} xl={4} xxl={5} className="g-4">
           {sweatshirtWomen ? (
             sweatshirtWomen.map((product, index) => (
               <Col md={3} key={index}>

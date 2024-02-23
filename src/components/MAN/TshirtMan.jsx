@@ -1,12 +1,14 @@
 import { useDispatch, useSelector } from "react-redux";
 import { ActionTypes, getTshirtMan } from "../../Redux/action";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Button, Card, Col, Container, ListGroup, Row } from "react-bootstrap";
+import StripeOption1 from "../PAYMENT/StripeOption1";
 
 const TshirtMan = () => {
   const token = useSelector((state) => state.token);
   const tshirtMan = useSelector((state) => state.tshirtMan);
   const dispatch = useDispatch();
+  const [selectedProducts, setSelectedProducts] = useState([]);
 
   useEffect(() => {
     if (token) {
@@ -15,11 +17,19 @@ const TshirtMan = () => {
     }
   }, [dispatch, token]);
 
+  const handleAddToCart = (product) => {
+    dispatch({
+      type: ActionTypes.ADD_CART,
+      payload: product,
+    });
+    setSelectedProducts([...selectedProducts, product]);
+  };
+
   return (
     <div>
       <h4 className="ms-5 ps-5 pt-3 mb-4 text-black">Magliette per uomo</h4>
       <Container>
-        <Row>
+        <Row xs={1} sm={2} md={3} lg={4} xl={4} xxl={5} className="g-4">
           {tshirtMan ? (
             tshirtMan.map((product, index) => (
               <Col md={3} key={index}>
@@ -56,12 +66,7 @@ const TshirtMan = () => {
                   </ListGroup>
                   <Button
                     className="ms-4 me-4 mt-2 mb-2 text-black border border-black bg bg-body-secondary custom-button "
-                    onClick={() => {
-                      dispatch({
-                        type: ActionTypes.ADD_CART,
-                        payload: product,
-                      });
-                    }}
+                    onClick={() => handleAddToCart(product)}
                   >
                     Aggiungi al carrello
                   </Button>
@@ -71,6 +76,11 @@ const TshirtMan = () => {
           ) : (
             <p>Caricamento in corso...</p>
           )}
+        </Row>
+        <Row>
+          <Col>
+            <StripeOption1 buttonText="Checkout" array={selectedProducts} />
+          </Col>
         </Row>
       </Container>
     </div>

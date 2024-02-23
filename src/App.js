@@ -26,6 +26,8 @@ import SuitKids from "./components/KIDS/SuitKids";
 import SetKids from "./components/KIDS/SetKids";
 import Orders from "./components/PAGE/Orders";
 import SaleTshirt from "./components/PAGE/SaleTshirt";
+import StripeOption1 from "./components/PAYMENT/StripeOption1";
+import SuccessfulPayment from "./components/PAYMENT/SuccessfulPayment";
 
 function App() {
   const [jwtToken, setJwtToken] = useState(null);
@@ -67,6 +69,11 @@ function App() {
           <Route path="/cart" element={<MyCart />}></Route>
           <Route path="/orders/:idOrder" element={<Orders />}></Route>
           <Route path="/salesTshirt" element={<SaleTshirt />}></Route>
+          <Route path="/stripe" element={<StripeOption1 />}></Route>
+          <Route
+            path="/successfulPayment"
+            element={<SuccessfulPayment />}
+          ></Route>
         </Routes>
       </div>
     </BrowserRouter>

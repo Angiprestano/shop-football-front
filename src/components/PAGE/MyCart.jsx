@@ -2,12 +2,20 @@ import { Card, Col, Row, ListGroup } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { ActionTypes, addOrder } from "../../Redux/action";
+import StripeOption1 from "../PAYMENT/StripeOption1";
 
 const MyCart = () => {
   const token = useSelector((state) => state.token);
   const cart = useSelector((state) => state.cart);
   const dispatch = useDispatch();
   const navigate = useNavigate();
+
+  const productForCheckout = cart.map((product) => {
+    return {
+      price: product.priceId,
+      quantity: 1,
+    };
+  });
   const checkOutOrder = () => {
     const body = { listProduct: [] };
     for (let i = 0; i < cart.length; i++) {
@@ -80,6 +88,7 @@ const MyCart = () => {
           <button onClick={checkOutOrder} className="bg bg-body-secondary ms-4">
             CheckOut
           </button>
+          <StripeOption1 productForCheckout={productForCheckout} />
         </div>
       ) : (
         <p>total={total}</p>

@@ -19,7 +19,7 @@ const Accessories = () => {
     <div>
       <h4 className="ms-5 ps-5 mt-2 mb-4">Accessori</h4>
       <Container>
-        <Row>
+        <Row xs={1} md={2} lg={3} xl={4} xxl={5} className="g-4">
           {accessories ? (
             accessories.map((product, index) => (
               <Col md={3} key={index}>

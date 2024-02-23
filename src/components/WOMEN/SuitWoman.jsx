@@ -19,7 +19,7 @@ const SuitWomen = () => {
     <div className="">
       <h4 className="ms-5 ps-5 pt-2 mb-4">Tute Donna</h4>
       <Container>
-        <Row>
+        <Row xs={1} sm={2} md={3} lg={4} xl={4} xxl={5} className="g-4">
           {suitWomen ? (
             suitWomen.map((product, index) => (
               <Col md={3} key={index}>
