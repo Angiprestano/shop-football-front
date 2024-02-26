@@ -28,6 +28,7 @@ export const ActionTypes = {
   ADD_ORDER: "ADD_ORDER",
   ADD_LAST_ORDER: "ADD_LAST_ORDER",
   EMPTY_CART: "EMPTY_CART",
+  ADD_PRODUCT_TO_CART: "ADD_PRODUCT_TO_CART",
 
   SET_USER_TOKEN: "SET_USER_TOKEN",
   LOGOUT_USER: "LOGOUT_USER",
@@ -44,6 +45,13 @@ export const setOrders = (orders) => ({
   type: ActionTypes.SET_ORDERS,
   payload: orders,
 });
+
+export const addProductToCart = (product) => {
+  return {
+    type: ActionTypes.ADD_PRODUCT_TO_CART,
+    payload: product,
+  };
+};
 
 export const aggiungiOrdineAlCarrello = (ordine) => ({
   type: ActionTypes.AGGIUNGI_ORDINE_AL_CARRELLO,

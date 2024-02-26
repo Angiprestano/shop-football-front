@@ -1,10 +1,20 @@
-import { Card, Carousel, Container, ListGroup, Nav } from "react-bootstrap";
+import {
+  Button,
+  Card,
+  Carousel,
+  Container,
+  ListGroup,
+  Nav,
+} from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import {
+  addProductToCart,
   getAccessories,
   getSuitMan,
   getSweatshirtMan,
+  getTshirtKids,
+  getTshirtMan,
 } from "../../Redux/action";
 import { useEffect } from "react";
 
@@ -14,6 +24,8 @@ const Homepage = () => {
   const dispatch = useDispatch();
   const accessories = useSelector((state) => state.accessories);
   const sweatshirtMan = useSelector((state) => state.sweatshirtMan);
+  const tshirtKids = useSelector((state) => state.tshirtKids);
+  const tshirtMan = useSelector((state) => state.tshirtMan);
 
   useEffect(() => {
     if (token) {
@@ -34,12 +46,30 @@ const Homepage = () => {
     }
   }, [dispatch, token]);
 
+  useEffect(() => {
+    if (token) {
+      dispatch(getTshirtMan(token));
+      console.log("ecco il token", token);
+    }
+  }, [dispatch, token]);
+
+  useEffect(() => {
+    if (token) {
+      dispatch(getTshirtKids(token));
+      console.log("ecco il token", token);
+    }
+  }, [dispatch, token]);
+
   const chunkArray = (array, size) => {
     const chunkedArray = [];
     for (let i = 0; i < array.length; i += size) {
       chunkedArray.push(array.slice(i, i + size));
     }
     return chunkedArray;
+  };
+
+  const handleAddToCart = (product) => {
+    dispatch(addProductToCart(product));
   };
 
   return (
@@ -92,7 +122,7 @@ const Homepage = () => {
 
       <div className="bg bg-body-secondary">
         <Link to="/suitMan" style={{ textDecoration: "none" }}>
-          <h4 className=" mt-4 pt-4 mb-4 mt-3 text-center text-black">
+          <h4 className=" mt-4 pt-4 mb-3 mb-2 mt-3 text-center text-black">
             Tute uomo
           </h4>
         </Link>
@@ -105,7 +135,7 @@ const Homepage = () => {
                     {chunk.map((product, idx) => (
                       <Card
                         key={idx}
-                        className="col-12 col-sm-6 col-md-4 col-lg-3 custom-card"
+                        className="col-12 col-sm-6 col-md-4 col-lg-3 ms-2 custom-card"
                       >
                         <Card.Img
                           className="mt-3 ms-5"
@@ -125,6 +155,13 @@ const Homepage = () => {
                           <ListGroup.Item className="custom-card-text">
                             Prezzo: €{product.price.toFixed(2)}
                           </ListGroup.Item>
+                          <Button
+                            className="mt-2 mb-1"
+                            onClick={() => handleAddToCart(product)}
+                            variant="bg bg-primary-subtle"
+                          >
+                            Aggiungi al carrello
+                          </Button>
                         </Card.Body>
                         <ListGroup className="list-group-flush"></ListGroup>
                       </Card>
@@ -153,9 +190,10 @@ const Homepage = () => {
                     {chunk.map((product, idx) => (
                       <Card
                         key={idx}
-                        className="col-12 col-sm-6 col-md-4 col-lg-2 custom-card mx-4 mt-2"
+                        className="col-12 col-sm-6 col-md-4 col-lg-3 custom-card mx-4 mt-2 ms-2"
                       >
                         <Card.Img
+                          className="ms-5"
                           variant="top"
                           src={product.image}
                           alt={product.title}
@@ -171,6 +209,67 @@ const Homepage = () => {
                           <ListGroup.Item className="custom-card-text">
                             Prezzo: €{product.price.toFixed(2)}
                           </ListGroup.Item>
+                          <Button
+                            className="mt-2 mb-1"
+                            onClick={() => handleAddToCart(product)}
+                            variant="bg bg-primary-subtle"
+                          >
+                            Aggiungi al carrello
+                          </Button>
+                        </Card.Body>
+                        <ListGroup className="list-group-flush"></ListGroup>
+                      </Card>
+                    ))}
+                  </div>
+                </Carousel.Item>
+              ))
+            ) : (
+              <Carousel.Item>
+                <p>Caricamento in corso...</p>
+              </Carousel.Item>
+            )}
+          </Carousel>
+        </Container>
+
+        <Link to="/accessories" style={{ textDecoration: "none" }}>
+          <h4 className="pt-3 mb-2 mb-3 text-center text-black">
+            Magliette Uomo
+          </h4>
+        </Link>
+        <Container>
+          <Carousel>
+            {tshirtMan ? (
+              chunkArray(tshirtMan, 6).map((chunk, index) => (
+                <Carousel.Item key={index}>
+                  <div className="d-flex justify-content-between align-items-center">
+                    {chunk.map((product, idx) => (
+                      <Card
+                        key={idx}
+                        className="col-12 col-sm-6 col-md-4 col-lg-3 custom-card mx-4 mt-2 ms-2"
+                      >
+                        <Card.Img
+                          className="ms-5"
+                          variant="top"
+                          src={product.image}
+                          alt={product.title}
+                          style={{
+                            height: "210px",
+                            width: "210px",
+                          }}
+                        />
+                        <Card.Body>
+                          <Card.Title className="custom-card-title">
+                            {product.title}
+                          </Card.Title>
+                          <ListGroup.Item className="custom-card-text">
+                            Prezzo: €{product.price.toFixed(2)}
+                          </ListGroup.Item>
+                          <Button
+                            className="mt-2 mb-1 bg bg-primary-subtle"
+                            onClick={() => handleAddToCart(product)}
+                          >
+                            Aggiungi al carrello
+                          </Button>
                         </Card.Body>
                         <ListGroup className="list-group-flush"></ListGroup>
                       </Card>
@@ -198,13 +297,14 @@ const Homepage = () => {
                     {chunk.map((product, idx) => (
                       <Card
                         key={idx}
-                        className="col-12 col-sm-6 col-md-4 col-lg-2 custom-card mb-4 mx-3"
+                        className="col-12 col-sm-6 col-md-4 col-lg-3 custom-card mb-4 mx-3"
                       >
                         <Card.Img
+                          className="mt-1"
                           variant="top"
                           src={product.image}
                           alt={product.title}
-                          style={{ height: "150px", objectFit: "cover" }}
+                          style={{ height: "180px", objectFit: "cover" }}
                         />
                         <Card.Body>
                           <Card.Title className="custom-card-title">
@@ -213,6 +313,65 @@ const Homepage = () => {
                           <ListGroup.Item className="custom-card-text">
                             Prezzo: €{product.price.toFixed(2)}
                           </ListGroup.Item>
+                          <Button
+                            className="mt-2 mb-1"
+                            onClick={() => handleAddToCart(product)}
+                            variant="bg bg-primary-subtle"
+                          >
+                            Aggiungi al carrello
+                          </Button>
+                        </Card.Body>
+                        <ListGroup className="list-group-flush"></ListGroup>
+                      </Card>
+                    ))}
+                  </div>
+                </Carousel.Item>
+              ))
+            ) : (
+              <Carousel.Item>
+                <p>Caricamento in corso...</p>
+              </Carousel.Item>
+            )}
+          </Carousel>
+        </Container>
+
+        <Link to="/tshirtKids" style={{ textDecoration: "none" }}>
+          <h4 className="mt-4 pt-2 text-center mb-4 text-black">
+            Magliette bambino
+          </h4>
+        </Link>
+        <Container>
+          <Carousel>
+            {tshirtKids ? (
+              chunkArray(tshirtKids, 5).map((chunk, index) => (
+                <Carousel.Item key={index}>
+                  <div className="d-flex justify-content-between align-items-center">
+                    {chunk.map((product, idx) => (
+                      <Card
+                        key={idx}
+                        className="col-12 col-sm-6 col-md-4 col-lg-3 custom-card mb-4 mx-3"
+                      >
+                        <Card.Img
+                          className="mt-1"
+                          variant="top"
+                          src={product.image}
+                          alt={product.title}
+                          style={{ height: "180px", objectFit: "cover" }}
+                        />
+                        <Card.Body>
+                          <Card.Title className="custom-card-title">
+                            {product.title}
+                          </Card.Title>
+                          <ListGroup.Item className="custom-card-text">
+                            Prezzo: €{product.price.toFixed(2)}
+                          </ListGroup.Item>
+                          <Button
+                            className="mt-2 mb-1 custom-button"
+                            onClick={() => handleAddToCart(product)}
+                            variant="bg bg-primary-subtle"
+                          >
+                            Aggiungi al carrello
+                          </Button>
                         </Card.Body>
                         <ListGroup className="list-group-flush"></ListGroup>
                       </Card>

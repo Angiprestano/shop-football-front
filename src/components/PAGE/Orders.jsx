@@ -44,7 +44,7 @@ const Orders = () => {
     <div>
       {lastOrder !== null && Object.keys(lastOrder).length !== 0 ? (
         <div>
-          <div>
+          <div className="separator">
             <h3>Ordine</h3>
             <p>ID Ordine: {lastOrder.idOrder}</p>
             <p>Totale da pagare: €{lastOrder.toPay}</p>
@@ -78,12 +78,8 @@ const Orders = () => {
                 ))}
             </ul>
           </div>
-          <div className="w-100 text-center text-black">
-            <StripeOption1>
-              {" "}
-              priceId= "price_1OmZacGUnxyubwNLx6EGF4TP" buttonText= {"Go on"}
-            </StripeOption1>
-          </div>
+
+          <StripeOption1 order={lastOrder} />
         </div>
       ) : (
         <p>Non ci sono ordini disponibili.</p>

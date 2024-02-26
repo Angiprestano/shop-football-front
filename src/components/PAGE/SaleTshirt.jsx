@@ -41,6 +41,7 @@ const SaleTshirt = () => {
                   <ListGroup className="list-group-flush">
                     <ListGroup.Item className="text-danger fw-bold">
                       Prezzo: €{product.price.toFixed(2)}
+                      <p className="text-black"> -20% </p>
                     </ListGroup.Item>
                     <ListGroup.Item>Colore:{product.color}</ListGroup.Item>
 

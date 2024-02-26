@@ -2,7 +2,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { ActionTypes, getTshirtMan } from "../../Redux/action";
 import { useEffect, useState } from "react";
 import { Button, Card, Col, Container, ListGroup, Row } from "react-bootstrap";
-import StripeOption1 from "../PAYMENT/StripeOption1";
+import { Link } from "react-router-dom";
 
 const TshirtMan = () => {
   const token = useSelector((state) => state.token);
@@ -27,45 +27,51 @@ const TshirtMan = () => {
 
   return (
     <div>
-      <h4 className="ms-5 ps-5 pt-3 mb-4 text-black">Magliette per uomo</h4>
+      <h4 className="text-center pt-3 mb-4 text-black">Magliette</h4>
       <Container>
         <Row xs={1} sm={2} md={3} lg={4} xl={4} xxl={5} className="g-4">
           {tshirtMan ? (
             tshirtMan.map((product, index) => (
               <Col md={3} key={index}>
                 <Card style={{ width: "15rem", marginBottom: "20px" }}>
-                  <Card.Img
-                    variant="top"
-                    src={product.image}
-                    alt={product.title}
-                    style={{ height: "200px", objectFit: "cover" }}
-                  />
-                  <Card.Body className="custom-card-body">
-                    <Card.Title className="custom-card-title">
-                      {product.title}
-                    </Card.Title>
-                    <Card.Text className="custom-card-text">
-                      {product.description}
-                    </Card.Text>
-                  </Card.Body>
-                  <ListGroup className="list-group-flush">
-                    <ListGroup.Item>
-                      Prezzo: €{product.price.toFixed(2)}
-                    </ListGroup.Item>
-                    <ListGroup.Item>Colore:{product.color}</ListGroup.Item>
+                  <Link
+                    to={`/products/${product.id}`}
+                    className="text-decoration-none text-black "
+                  >
+                    <Card.Img
+                      variant="top"
+                      src={product.image}
+                      alt={product.title}
+                      style={{ height: "200px", objectFit: "cover" }}
+                    />
+                    <Card.Body className="custom-card-body">
+                      <Card.Title className="custom-card-title">
+                        {product.title}
+                      </Card.Title>
+                      <Card.Text className="custom-card-text">
+                        {product.description}
+                      </Card.Text>
+                    </Card.Body>
+                    <ListGroup className="list-group-flush">
+                      <ListGroup.Item>
+                        Prezzo: €{product.price.toFixed(2)}
+                      </ListGroup.Item>
 
-                    <ListGroup.Item>Taglia: {product.size}</ListGroup.Item>
+                      <ListGroup.Item>Colore:{product.color}</ListGroup.Item>
 
-                    <ListGroup.Item>
-                      Categoria: {product.categories}
-                    </ListGroup.Item>
+                      <ListGroup.Item>Taglia: {product.size}</ListGroup.Item>
 
-                    <ListGroup.Item>
-                      Tipo di prodotto: {product.typeofProduct}
-                    </ListGroup.Item>
-                  </ListGroup>
+                      <ListGroup.Item>
+                        Categoria: {product.categories}
+                      </ListGroup.Item>
+
+                      <ListGroup.Item>
+                        Tipo di prodotto: {product.typeofProduct}
+                      </ListGroup.Item>
+                    </ListGroup>
+                  </Link>
                   <Button
-                    className="ms-4 me-4 mt-2 mb-2 text-black border border-black bg bg-body-secondary custom-button "
+                    className="ms-4 me-4 mt-2 mb-2 text-black border border-black bg bg-body-secondary custom-button"
                     onClick={() => handleAddToCart(product)}
                   >
                     Aggiungi al carrello
@@ -76,11 +82,6 @@ const TshirtMan = () => {
           ) : (
             <p>Caricamento in corso...</p>
           )}
-        </Row>
-        <Row>
-          <Col>
-            <StripeOption1 buttonText="Checkout" array={selectedProducts} />
-          </Col>
         </Row>
       </Container>
     </div>

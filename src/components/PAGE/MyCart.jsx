@@ -2,7 +2,6 @@ import { Card, Col, Row, ListGroup } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { ActionTypes, addOrder } from "../../Redux/action";
-import StripeOption1 from "../PAYMENT/StripeOption1";
 
 const MyCart = () => {
   const token = useSelector((state) => state.token);
@@ -10,12 +9,6 @@ const MyCart = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const productForCheckout = cart.map((product) => {
-    return {
-      price: product.priceId,
-      quantity: 1,
-    };
-  });
   const checkOutOrder = () => {
     const body = { listProduct: [] };
     for (let i = 0; i < cart.length; i++) {
@@ -49,7 +42,8 @@ const MyCart = () => {
     <div>
       {cart ? (
         <div>
-          <h4 className="ms-4">Carrello</h4>
+          <h4 className="ms-4 mb-2 mt-3">Carrello</h4>
+
           <Row className="ms-2">
             {cart.map((product, i) => {
               return (
@@ -82,13 +76,15 @@ const MyCart = () => {
               );
             })}
           </Row>
-          <h5 className="f fs-4 mt-5 ms-4">
+          <p className="f fs-4 mt-3 ms-4 fw-semibold">
             Totale da pagare= €{total().toFixed(2)}
-          </h5>
-          <button onClick={checkOutOrder} className="bg bg-body-secondary ms-4">
-            CheckOut
+          </p>
+          <button
+            onClick={checkOutOrder}
+            className=" checkButton bg bg-body-secondary ms-4 mt-4 rounded-3 border-1 ps-2 pe-2"
+          >
+            Vai all'ordine
           </button>
-          <StripeOption1 productForCheckout={productForCheckout} />
         </div>
       ) : (
         <p>total={total}</p>

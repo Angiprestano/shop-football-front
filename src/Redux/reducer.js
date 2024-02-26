@@ -34,6 +34,18 @@ const reducer = (state = initialstate, action) => {
         cart: [],
       };
 
+    case ActionTypes.ADD_PRODUCT_TO_CART:
+      return {
+        ...state,
+        cart: [...state.cart, action.payload],
+      };
+
+    case ActionTypes.REMOVE_PRODUCT_TO_CART:
+      return {
+        ...state,
+        cart: [...state.cart, action.payload],
+      };
+
     case ActionTypes.ADD_LAST_ORDER:
       return {
         ...state,

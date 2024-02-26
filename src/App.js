@@ -28,6 +28,7 @@ import Orders from "./components/PAGE/Orders";
 import SaleTshirt from "./components/PAGE/SaleTshirt";
 import StripeOption1 from "./components/PAYMENT/StripeOption1";
 import SuccessfulPayment from "./components/PAYMENT/SuccessfulPayment";
+import PageProduct from "./components/PAGE/PageProduct";
 
 function App() {
   const [jwtToken, setJwtToken] = useState(null);
@@ -47,6 +48,7 @@ function App() {
         <Routes>
           <Route path="/register" element={<Register />}></Route>
           <Route path="/" element={<PageLogin />}></Route>
+          <Route path="/products/:id" element={<PageProduct />}></Route>
           <Route path="/navbar" element={<OneNavbar />}></Route>
           <Route path="/homepage" element={<Homepage />}></Route>
           <Route path="/tshirtMan" element={<TshirtMan />}></Route>
