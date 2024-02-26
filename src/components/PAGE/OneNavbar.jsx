@@ -12,7 +12,7 @@ import {
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 
 const OneNavbar = () => {
   const [showDropdown, setShowDropdown] = useState(false);
@@ -30,6 +30,7 @@ const OneNavbar = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     setLoading(true);
+
     try {
       const response = await fetch(
         `http://localhost:3001/products/product_title?title=${searchTerm}`
@@ -47,6 +48,14 @@ const OneNavbar = () => {
       setLoading(false);
     }
   };
+
+  const location = useLocation();
+  const isLoginOrRegister =
+    location.pathname === "/" || location.pathname === "/register";
+
+  if (isLoginOrRegister) {
+    return null;
+  }
 
   return (
     <Navbar expand="lg" className="navbar">

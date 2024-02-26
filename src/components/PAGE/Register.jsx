@@ -8,6 +8,7 @@ const Register = () => {
   const [email, setEmail] = useState("");
   const [address, setAddress] = useState("");
   const [password, setPassword] = useState("");
+
   const navigate = useNavigate();
 
   const payload = {
@@ -50,7 +51,7 @@ const Register = () => {
       <div
         className="background-image"
         style={{
-          backgroundImage: `url("https://besthqwallpapers.com/Uploads/10-2-2020/121272/fc-internazionale-logo-italian-football-club-metal-emblem-blue-black-metal-mesh-background-fc-internazionale.jpg")`,
+          backgroundImage: `url("https://cidadeolimpica.com.br/wp-content/uploads/2020/12/inter-milano-pc6-scaled.jpg")`,
           minHeight: "100vh",
           backgroundSize: "cover",
           display: "flex",
