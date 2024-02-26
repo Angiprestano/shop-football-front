@@ -40,10 +40,10 @@ const reducer = (state = initialstate, action) => {
         cart: [...state.cart, action.payload],
       };
 
-    case ActionTypes.REMOVE_PRODUCT_TO_CART:
+    case ActionTypes.REMOVE_TO_CART:
       return {
         ...state,
-        cart: [...state.cart, action.payload],
+        cart: state.cart.filter((product) => product.id !== action.payload),
       };
 
     case ActionTypes.ADD_LAST_ORDER:

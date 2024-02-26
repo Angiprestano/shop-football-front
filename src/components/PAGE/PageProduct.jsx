@@ -42,7 +42,7 @@ const PageProduct = () => {
 
   return (
     <Container fluid className="mt-3">
-      <Card style={{ maxWidth: "80%" }}>
+      <Card style={{ maxWidth: "100%" }}>
         <Link
           to="#"
           onClick={handleGoBack}
@@ -60,7 +60,7 @@ const PageProduct = () => {
               alt={product.title}
             />
           </Col>
-          <Col sm={6} className="mt-3">
+          <Col sm={6} className="mt-3 d-flex align-content-center ">
             <Card.Body>
               <Card.Title>
                 <h1>{product.title}</h1>

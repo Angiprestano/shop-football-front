@@ -2,6 +2,7 @@ import { Card, Col, Row, ListGroup } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { ActionTypes, addOrder } from "../../Redux/action";
+import { FaTrash } from "react-icons/fa";
 
 const MyCart = () => {
   const token = useSelector((state) => state.token);
@@ -21,6 +22,13 @@ const MyCart = () => {
       navigate("/orders/" + data);
     });
     dispatch({ type: ActionTypes.EMPTY_CART });
+  };
+
+  const removeToCart = (id) => {
+    dispatch({
+      type: ActionTypes.REMOVE_TO_CART,
+      payload: id,
+    });
   };
 
   const total = () => {
@@ -70,6 +78,17 @@ const MyCart = () => {
                       <ListGroup.Item>
                         Prezzo: €{product.price.toFixed(2)}
                       </ListGroup.Item>
+
+                      <FaTrash
+                        className="mt-2 mb-2"
+                        style={{
+                          color: "black",
+                          cursor: "pointer",
+                          display: "block",
+                          margin: "auto",
+                        }}
+                        onClick={() => removeToCart(product.id)}
+                      />
                     </ListGroup>
                   </Card>
                 </Col>

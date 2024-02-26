@@ -194,7 +194,7 @@ const OneNavbar = () => {
         </Button>
 
         <Button
-          className="bg bg-body-secondary text-black border border-black ms-2"
+          className="bg bg-body-secondary text-black border border-black ms-2 custom-button"
           onClick={(e) => {
             e.preventDefault();
             navigate("/cart");
