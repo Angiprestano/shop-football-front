@@ -17,6 +17,46 @@ import {
   getTshirtMan,
 } from "../../Redux/action";
 import { useEffect } from "react";
+import {
+  Facebook,
+  Instagram,
+  Linkedin,
+  Snapchat,
+  Telegram,
+  Tiktok,
+  Twitch,
+  Twitter,
+  Whatsapp,
+  Youtube,
+} from "react-bootstrap-icons";
+import {
+  SiAdidas,
+  SiCloud66,
+  SiCodesignal,
+  SiIveco,
+  SiLogitech,
+  SiMercedes,
+  SiMetro,
+  SiMicrosoftazure,
+  SiMicrosoftbing,
+  SiNdr,
+  SiNear,
+  SiNike,
+  SiNrwl,
+  SiSimplenote,
+  SiSingaporeairlines,
+} from "react-icons/si";
+import {
+  FaCcAmazonPay,
+  FaCcApplePay,
+  FaCcJcb,
+  FaCcMastercard,
+  FaCcPaypal,
+  FaCcVisa,
+  FaEbay,
+  FaGooglePay,
+} from "react-icons/fa";
+import { SiQatarairways } from "react-icons/si";
 
 const Homepage = () => {
   const token = useSelector((state) => state.token);
@@ -115,6 +155,41 @@ const Homepage = () => {
           <img
             className="d-block custom-carousel-image"
             src="https://store.inter.it/dw/image/v2/BJBQ_PRD/on/demandware.static/-/Library-Sites-InterSharedLibrary/default/dw55492adc/images/slider/CNY_2024/DESK_CNY_3.jpg"
+            alt="Third slide"
+          />
+        </Carousel.Item>
+        <Carousel.Item>
+          <img
+            className="d-block custom-carousel-image"
+            src="https://store.inter.it/dw/image/v2/BJBQ_PRD/on/demandware.static/-/Library-Sites-InterSharedLibrary/default/dw31c57575/images/slider/INTER-X-24BOTTLES/BANNER_PAGE_DESKTOP24.jpg"
+            alt="Third slide"
+          />
+        </Carousel.Item>
+        <Carousel.Item>
+          <img
+            className="d-block custom-carousel-image"
+            src="https://store.inter.it/dw/image/v2/BJBQ_PRD/on/demandware.static/-/Library-Sites-InterSharedLibrary/default/dw4242ccf0/images/slider/EVERYDAY_COLLECTION/LANDING_DESKTOP_EVERY2.jpg"
+            alt="Third slide"
+          />
+        </Carousel.Item>
+        <Carousel.Item>
+          <img
+            className="d-block custom-carousel-image"
+            src="https://store.inter.it/dw/image/v2/BJBQ_PRD/on/demandware.static/-/Library-Sites-InterSharedLibrary/default/dwcf40110b/images/slider/MAGGIO_GIUGNO_23/LANDING_DESKTOP_RUBBER.jpg"
+            alt="Third slide"
+          />
+        </Carousel.Item>
+        <Carousel.Item>
+          <img
+            className="d-block custom-carousel-image"
+            src="https://store.inter.it/on/demandware.static/-/Sites-inter-storefront-catalog-it/default/dw86b7668a/category_banner/BANNER_PAGE_DESKTOP_05ucl.jpg"
+            alt="Third slide"
+          />
+        </Carousel.Item>
+        <Carousel.Item>
+          <img
+            className="d-block custom-carousel-image"
+            src="https://store.inter.it/dw/image/v2/BJBQ_PRD/on/demandware.static/-/Library-Sites-InterSharedLibrary/default/dw86e8485f/images/slider/THIRD-KIT-23-24/BANNER_PAGE_DESKTOP_THIRD_KIT.jpg"
             alt="Third slide"
           />
         </Carousel.Item>
@@ -387,12 +462,31 @@ const Homepage = () => {
           </Carousel>
         </Container>
       </div>
-      <Container className="bg bg-black text-white">
-        <div>
-          <img src="" alt="" />
+
+      <Container className="footerInter bg bg-black text-white pt-3">
+        <div className="sponsor">
+          <SiNike />
+          <FaEbay className="ms-4" />
+          <SiQatarairways className="ms-4 mb-1" />
+          <SiAdidas className="ms-4" />
+          <SiCloud66 className="ms-4" />
+          <SiCodesignal className="ms-4" />
+          <SiIveco className="ms-4" />
+          <SiMercedes className="ms-4" />
+          <SiMicrosoftbing className="ms-4" />
+          <SiMicrosoftazure className="ms-4" />
+          <SiMetro className="ms-4" />
+          <SiLogitech className="ms-4" />
+          <SiNdr className="ms-4 mb-2" />
+          <SiNear className="ms-4" />
+          <SiSingaporeairlines className="ms-4" />
+          <SiNrwl className="ms-4" />
+          <SiSimplenote className="ms-4" />
+
+          <img className="https://store.inter.it/on/demandware.static/-/Library-Sites-InterSharedLibrary/default/dw967e01b8/images/loghi-partner/U-Power.svg" />
         </div>
         <Nav className="">
-          <div className="d-flex flex-row ms-4 ps-5 mt-4">
+          <div className="d-flex flex-row ms-4 ps-5 mt-4 mt-3">
             <span className="d-flex flex-column ms-4 ps-4">
               <h5>SHOPPING</h5>
               <p>Acquisti online</p>
@@ -423,6 +517,30 @@ const Homepage = () => {
               <p>Inter Store San Siro </p>
               <p>Inter Store Castello</p>
             </span>
+          </div>
+
+          <div className="icons">
+            <Telegram className="me-3" />
+            <Linkedin className="me-3" />
+            <Tiktok className="me-3" />
+            <Youtube className="me-3" />
+            <Twitch className="me-3" />
+            <Instagram className="me-3" />
+            <Snapchat className="me-3" />
+            <Twitter className="me-3" />
+            <Facebook className="me-3" />
+            <Whatsapp className="me-3" />
+            <hr></hr>
+            <div className="cart d-flex flex-row">
+              <FaCcPaypal className="me-4" />
+              <FaCcMastercard className="me-4" />
+              <FaCcAmazonPay className="me-4" />
+              <FaCcApplePay className="me-4" />
+              <FaCcVisa className="me-4" />
+              <FaCcAmazonPay className="me-4" />
+              <FaGooglePay className="me-4" />
+              <FaCcJcb className="me-4" />
+            </div>
           </div>
         </Nav>
       </Container>
