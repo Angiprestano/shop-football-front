@@ -64,7 +64,7 @@ const OneNavbar = () => {
           src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/FC_Internazionale_Milano_2021.svg/1024px-FC_Internazionale_Milano_2021.svg.png"
           className="logo mt-1 me-3"
         ></img>
-        <Navbar.Brand href="#home" className="text-white fw-semibold ms-2">
+        <Navbar.Brand href="/homepage" className="text-white fw-semibold ms-2">
           Inter Store
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />

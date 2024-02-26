@@ -265,7 +265,7 @@ const Homepage = () => {
                             Prezzo: €{product.price.toFixed(2)}
                           </ListGroup.Item>
                           <Button
-                            className="mt-2 mb-1 bg bg-primary-subtle"
+                            className="mt-2 mb-1 bg bg-primary-subtle border border-0 text-black"
                             onClick={() => handleAddToCart(product)}
                           >
                             Aggiungi al carrello

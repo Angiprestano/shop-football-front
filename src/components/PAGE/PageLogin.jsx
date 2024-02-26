@@ -4,7 +4,6 @@ import Form from "react-bootstrap/Form";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { login } from "../../Redux/action";
-import OneNavbar from "./OneNavbar";
 
 const PageLogin = () => {
   const dispatch = useDispatch();
