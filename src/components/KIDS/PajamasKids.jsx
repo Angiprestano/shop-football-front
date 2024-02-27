@@ -24,7 +24,10 @@ const PajamasKids = () => {
           {pajamasKids ? (
             pajamasKids.map((product, index) => (
               <Col md={3} key={index}>
-                <Card style={{ width: "15rem", marginBottom: "20px" }}>
+                <Card
+                  className="text-truncate animationCard"
+                  style={{ width: "15rem", marginBottom: "20px" }}
+                >
                   <Link
                     to={`/products/${product.id}`}
                     className="text-decoration-none text-black "

@@ -61,7 +61,7 @@
   margin-top: 30px;
   margin-bottom: 40;
   width: 100%; /* Larghezza massima */
-  height: 300px; /* Altezza desiderata */
+  height: 330px; /* Altezza desiderata */
   object-fit: cover; /* Per mantenere l'aspect ratio */
 }
 
@@ -80,6 +80,16 @@
   opacity: 0.8;
   transition: opacity 0.2s ease;
   
+}
+
+.custom-card:hover {
+  transform: scale(1.1); 
+  transition: transform 0.3s ease; 
+}
+
+.animationCard:hover {
+  transform: scale(1.1); 
+  transition: transform 0.3s ease; 
 }
 
 /* Animazione di ingrandimento del bottone al clic */
@@ -103,16 +113,32 @@
 }
 
 .icons{
+  display: flex;
+  align-items: center;
   font-size: 33px;
   margin: 34px;
+  margin-left: 140px;
 }
 
 .sponsor{
-  margin-left: 40px;
-  font-size: 48px;
+  margin-left: 150px;
+  margin-bottom: 20px;
+  font-size: 43px;
+  
 }
 
 .cart{
+  display: flex;
+  align-items: center;
+  margin-left: 360px;
   font-size: 49px;
-  margin-right: 800px;
+  margin-bottom: 20px;
+}
+
+.cookie{
+  margin-left: 140px;
+}
+
+.textFot{
+  margin-left: 150px;
 }

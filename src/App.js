@@ -43,41 +43,39 @@ function App() {
   const isLoggedIn = true;
   return (
     <BrowserRouter>
-      <div>
-        {isLoggedIn && <OneNavbar />}
-        <Routes>
-          <Route path="/register" element={<Register />}></Route>
-          <Route path="/" element={<PageLogin />}></Route>
-          <Route path="/products/:id" element={<PageProduct />}></Route>
-          <Route path="/navbar" element={<OneNavbar />}></Route>
-          <Route path="/homepage" element={<Homepage />}></Route>
-          <Route path="/tshirtMan" element={<TshirtMan />}></Route>
-          <Route path="/accessories" element={<Accessories />}></Route>
-          <Route path="/sweatshirtMan" element={<SweatShirtMan />}></Route>
-          <Route path="/sweatshirtWomen" element={<SweatShirtWomen />}></Route>
-          <Route path="/pajamasWomen" element={<PajamasWomen />}></Route>
-          <Route path="/pajamasMan" element={<PajamasMan />}></Route>
-          <Route path="/suitMan" element={<SuitMan />}></Route>
-          <Route path="/suitWomen" element={<SuitWomen />}></Route>
-          <Route path="/tshirtWomen" element={<TshirtWomen />}></Route>
-          <Route path="/tshirtKids" element={<TshirtKids />}></Route>
-          <Route path="/felpaKids" element={<FelpaKids />}></Route>
-          <Route path="/pajamasKids" element={<PajamasKids />}></Route>
-          <Route path="/setDonna" element={<SetWomen />}></Route>
-          <Route path="/setUomo" element={<SetMan />}></Route>
-          <Route path="/pantsMan" element={<PantsMan />}></Route>
-          <Route path="/suitKids" element={<SuitKids />}></Route>
-          <Route path="/setKids" element={<SetKids />}></Route>
-          <Route path="/cart" element={<MyCart />}></Route>
-          <Route path="/orders/:idOrder" element={<Orders />}></Route>
-          <Route path="/salesTshirt" element={<SaleTshirt />}></Route>
-          <Route path="/stripe" element={<StripeOption1 />}></Route>
-          <Route
-            path="/successfulPayment"
-            element={<SuccessfulPayment />}
-          ></Route>
-        </Routes>
-      </div>
+      {isLoggedIn && <OneNavbar />}
+      <Routes>
+        <Route path="/register" element={<Register />}></Route>
+        <Route path="/" element={<PageLogin />}></Route>
+        <Route path="/products/:id" element={<PageProduct />}></Route>
+        <Route path="/navbar" element={<OneNavbar />}></Route>
+        <Route path="/homepage" element={<Homepage />}></Route>
+        <Route path="/tshirtMan" element={<TshirtMan />}></Route>
+        <Route path="/accessories" element={<Accessories />}></Route>
+        <Route path="/sweatshirtMan" element={<SweatShirtMan />}></Route>
+        <Route path="/sweatshirtWomen" element={<SweatShirtWomen />}></Route>
+        <Route path="/pajamasWomen" element={<PajamasWomen />}></Route>
+        <Route path="/pajamasMan" element={<PajamasMan />}></Route>
+        <Route path="/suitMan" element={<SuitMan />}></Route>
+        <Route path="/suitWomen" element={<SuitWomen />}></Route>
+        <Route path="/tshirtWomen" element={<TshirtWomen />}></Route>
+        <Route path="/tshirtKids" element={<TshirtKids />}></Route>
+        <Route path="/felpaKids" element={<FelpaKids />}></Route>
+        <Route path="/pajamasKids" element={<PajamasKids />}></Route>
+        <Route path="/setDonna" element={<SetWomen />}></Route>
+        <Route path="/setUomo" element={<SetMan />}></Route>
+        <Route path="/pantsMan" element={<PantsMan />}></Route>
+        <Route path="/suitKids" element={<SuitKids />}></Route>
+        <Route path="/setKids" element={<SetKids />}></Route>
+        <Route path="/cart" element={<MyCart />}></Route>
+        <Route path="/orders/:idOrder" element={<Orders />}></Route>
+        <Route path="/salesTshirt" element={<SaleTshirt />}></Route>
+        <Route path="/stripe" element={<StripeOption1 />}></Route>
+        <Route
+          path="/successfulPayment"
+          element={<SuccessfulPayment />}
+        ></Route>
+      </Routes>
     </BrowserRouter>
   );
 }

@@ -21,7 +21,7 @@ const OneNavbar = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [searchResults, setSearchResults] = useState([]);
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState("");
+  const [error, setError] = useState(null);
 
   const handleChange = (event) => {
     setSearchTerm(event.target.value);
@@ -173,6 +173,15 @@ const OneNavbar = () => {
             >
               <Nav.Link href="#" className="text-white">
                 Accessori
+              </Nav.Link>
+            </OverlayTrigger>
+            <OverlayTrigger
+              trigger="click"
+              placement="bottom"
+              overlay={<Popover></Popover>}
+            >
+              <Nav.Link href="/salesTshirt" className="text-white ">
+                Nuova collezione
               </Nav.Link>
             </OverlayTrigger>
             <OverlayTrigger

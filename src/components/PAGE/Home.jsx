@@ -25,7 +25,6 @@ import {
   Telegram,
   Tiktok,
   Twitch,
-  Twitter,
   Whatsapp,
   Youtube,
 } from "react-bootstrap-icons";
@@ -34,15 +33,19 @@ import {
   SiCloud66,
   SiCodesignal,
   SiIveco,
+  SiJordan,
   SiLogitech,
+  SiMaserati,
   SiMercedes,
   SiMetro,
+  SiMicrosoft,
   SiMicrosoftazure,
   SiMicrosoftbing,
   SiNdr,
   SiNear,
   SiNike,
   SiNrwl,
+  SiPuma,
   SiSimplenote,
   SiSingaporeairlines,
 } from "react-icons/si";
@@ -57,6 +60,7 @@ import {
   FaGooglePay,
 } from "react-icons/fa";
 import { SiQatarairways } from "react-icons/si";
+import { BsTwitterX } from "react-icons/bs";
 
 const Homepage = () => {
   const token = useSelector((state) => state.token);
@@ -118,7 +122,7 @@ const Homepage = () => {
         <Carousel.Item>
           <img
             className="d-block custom-carousel-image"
-            src="https://store.inter.it/on/demandware.static/-/Sites-inter-storefront-catalog-it/default/dw7cf90c59/BANNER_PAGE_DESKTOP_03.jpg"
+            src="//store.inter.it/dw/image/v2/BJBQ_PRD/on/demandware.static/-/Library-Sites-InterSharedLibrary/default/dw86e8485f/images/slider/THIRD-KIT-23-24/BANNER_PAGE_DESKTOP_THIRD_KIT.jpg"
             alt="First slide"
           />
         </Carousel.Item>
@@ -126,38 +130,11 @@ const Homepage = () => {
         <Carousel.Item>
           <img
             className="d-block custom-carousel-image"
-            src="https://store.inter.it/dw/image/v2/BJBQ_PRD/on/demandware.static/-/Library-Sites-InterSharedLibrary/default/dw057a8701/images/slider/SUPERCOPPA_2024/LANDING_DESK_SUPERCOPPA.jpg"
-            alt="Third slide"
-          />
-        </Carousel.Item>
-        <Carousel.Item>
-          <img
-            className="d-block custom-carousel-image"
-            src="https://store.inter.it/on/demandware.static/-/Sites-inter-storefront-catalog-it/default/dwacfbd6df/BANNER_PAGE_DESKTOP_04.jpg"
-            alt="Third slide"
-          />
-        </Carousel.Item>
-        <Carousel.Item>
-          <img
-            className="d-block custom-carousel-image"
-            src="https://intermilan.bynder.com/m/36ac0d1150990a0c/webimage-Header_Sito_News.png"
-            alt="Third slide"
-          />
-        </Carousel.Item>
-        <Carousel.Item>
-          <img
-            className="d-block custom-carousel-image"
             src="https://store.inter.it/dw/image/v2/BJBQ_PRD/on/demandware.static/-/Library-Sites-InterSharedLibrary/default/dw7357b861/images/CONCORSO_INTER_NAPOLI/GLOBAL_LANDING_DESKTOP_Promo-Contest_Inter-Napoli_ENG.jpg"
             alt="Third slide"
           />
         </Carousel.Item>
-        <Carousel.Item>
-          <img
-            className="d-block custom-carousel-image"
-            src="https://store.inter.it/dw/image/v2/BJBQ_PRD/on/demandware.static/-/Library-Sites-InterSharedLibrary/default/dw55492adc/images/slider/CNY_2024/DESK_CNY_3.jpg"
-            alt="Third slide"
-          />
-        </Carousel.Item>
+
         <Carousel.Item>
           <img
             className="d-block custom-carousel-image"
@@ -189,7 +166,7 @@ const Homepage = () => {
         <Carousel.Item>
           <img
             className="d-block custom-carousel-image"
-            src="https://store.inter.it/dw/image/v2/BJBQ_PRD/on/demandware.static/-/Library-Sites-InterSharedLibrary/default/dw86e8485f/images/slider/THIRD-KIT-23-24/BANNER_PAGE_DESKTOP_THIRD_KIT.jpg"
+            src="https://store.inter.it/on/demandware.static/-/Sites-inter-storefront-catalog-it/default/dw7cf90c59/BANNER_PAGE_DESKTOP_03.jpg"
             alt="Third slide"
           />
         </Carousel.Item>
@@ -206,7 +183,7 @@ const Homepage = () => {
             {suitMan ? (
               chunkArray(suitMan, 5).map((chunk, index) => (
                 <Carousel.Item key={index}>
-                  <div className="d-flex justify-content-between  align-items-center">
+                  <div className="d-flex justify-content-between align-items-center">
                     {chunk.map((product, idx) => (
                       <Card
                         key={idx}
@@ -314,7 +291,7 @@ const Homepage = () => {
         <Container>
           <Carousel>
             {tshirtMan ? (
-              chunkArray(tshirtMan, 6).map((chunk, index) => (
+              chunkArray(tshirtMan, 5).map((chunk, index) => (
                 <Carousel.Item key={index}>
                   <div className="d-flex justify-content-between align-items-center">
                     {chunk.map((product, idx) => (
@@ -463,7 +440,10 @@ const Homepage = () => {
         </Container>
       </div>
 
-      <Container className="footerInter bg bg-black text-white pt-3">
+      <Container
+        fluid
+        className="footerInter bg bg-black text-white pt-3 ms-0 me-0"
+      >
         <div className="sponsor">
           <SiNike />
           <FaEbay className="ms-4" />
@@ -482,12 +462,15 @@ const Homepage = () => {
           <SiSingaporeairlines className="ms-4" />
           <SiNrwl className="ms-4" />
           <SiSimplenote className="ms-4" />
-
-          <img className="https://store.inter.it/on/demandware.static/-/Library-Sites-InterSharedLibrary/default/dw967e01b8/images/loghi-partner/U-Power.svg" />
+          <SiPuma className="ms-4" />
+          <SiJordan className="ms-4" />
+          <SiMaserati className="ms-4" />
+          <SiMicrosoft className="ms-4" />
         </div>
-        <Nav className="">
-          <div className="d-flex flex-row ms-4 ps-5 mt-4 mt-3">
-            <span className="d-flex flex-column ms-4 ps-4">
+
+        <Nav>
+          <div className="textFot d-flex flex-row mt-4 mt-3">
+            <span className="d-flex flex-column ms-4 ">
               <h5>SHOPPING</h5>
               <p>Acquisti online</p>
               <p>Metodi di pagamento</p>
@@ -519,7 +502,7 @@ const Homepage = () => {
             </span>
           </div>
 
-          <div className="icons">
+          <div className="icons ">
             <Telegram className="me-3" />
             <Linkedin className="me-3" />
             <Tiktok className="me-3" />
@@ -527,10 +510,9 @@ const Homepage = () => {
             <Twitch className="me-3" />
             <Instagram className="me-3" />
             <Snapchat className="me-3" />
-            <Twitter className="me-3" />
             <Facebook className="me-3" />
             <Whatsapp className="me-3" />
-            <hr></hr>
+            <BsTwitterX />
             <div className="cart d-flex flex-row">
               <FaCcPaypal className="me-4" />
               <FaCcMastercard className="me-4" />
@@ -541,6 +523,13 @@ const Homepage = () => {
               <FaGooglePay className="me-4" />
               <FaCcJcb className="me-4" />
             </div>
+          </div>
+          <hr></hr>
+          <div className="cookie">
+            <h6>IMPOSTAZIONI COOKIE</h6>
+            <p>
+              Copyright © 1995-2022 F.C. Internazionale Milano P.IVA 04231750151
+            </p>
           </div>
         </Nav>
       </Container>
