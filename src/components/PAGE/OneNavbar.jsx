@@ -12,6 +12,7 @@ import {
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
+import { useSelector } from "react-redux";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 
 const OneNavbar = () => {
@@ -22,31 +23,39 @@ const OneNavbar = () => {
   const [searchResults, setSearchResults] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
+  const token = useSelector((state) => state.token);
 
   const handleChange = (event) => {
     setSearchTerm(event.target.value);
   };
 
-  const handleSubmit = async (event) => {
-    event.preventDefault();
-    setLoading(true);
+  const handleSearch = () => {
+    const url = `http://localhost:3001/products/part_title?partOfTitle=${encodeURIComponent(
+      searchTerm
+    )}`;
 
-    try {
-      const response = await fetch(
-        `http://localhost:3001/products/product_title?title=${searchTerm}`
-      );
-      if (!response.ok) {
-        throw new Error("Errore durante la richiesta");
-      }
-      const data = await response.json();
-      setSearchResults(data);
-      setError("");
-    } catch (error) {
-      setError("Errore durante la ricerca. Riprova più tardi.");
-      console.error("Errore durante la ricerca:", error);
-    } finally {
-      setLoading(false);
+    if (!token) {
+      console.error("Token non trovato.");
+      return;
     }
+    const headers = {
+      Authorization: `Bearer ${token}`,
+      "Content-Type": "application/json",
+    };
+
+    fetch(url, {
+      method: "GET",
+      headers: headers,
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log("Dati ricevuti dalla chiamata API:", data);
+        setSearchResults(data);
+        navigate("/result-forTitle", { state: { searchResults: data } });
+      })
+      .catch((error) => {
+        setError(error.message);
+      });
   };
 
   const location = useLocation();
@@ -195,17 +204,18 @@ const OneNavbar = () => {
             </OverlayTrigger>
           </Nav>
         </Navbar.Collapse>
-        <Form onSubmit={handleSubmit} inline>
+        <Form>
           <Form.Control
             type="text"
             placeholder="Search"
             className="d-flex justify-content-end"
             value={searchTerm}
-            onChange={handleChange}
+            onChange={(e) => setSearchTerm(e.target.value)}
           />
         </Form>
         <Button
-          type="submit"
+          type="button"
+          onClick={handleSearch}
           className="ms-3 fw-bold bg bg-black border border-black"
         >
           Cerca

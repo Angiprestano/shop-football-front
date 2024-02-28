@@ -29,9 +29,11 @@ import SaleTshirt from "./components/PAGE/SaleTshirt";
 import StripeOption1 from "./components/PAYMENT/StripeOption1";
 import SuccessfulPayment from "./components/PAYMENT/SuccessfulPayment";
 import PageProduct from "./components/PAGE/PageProduct";
+import SearchForm from "./components/PAGE/SearchForm";
 
 function App() {
   const [jwtToken, setJwtToken] = useState(null);
+  const [searchResults, setSearchResults] = useState([]);
 
   useEffect(() => {
     const cachedToken = localStorage.getItem("jwtToken");
@@ -75,6 +77,10 @@ function App() {
           path="/successfulPayment"
           element={<SuccessfulPayment />}
         ></Route>
+        <Route
+          path="/result-forTitle"
+          element={<SearchForm searchResults={searchResults} />}
+        />
       </Routes>
     </BrowserRouter>
   );

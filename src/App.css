@@ -92,11 +92,16 @@
   transition: transform 0.3s ease; 
 }
 
+.custom-button{
+  margin: 15px;
+  margin-left: 30px;
+  margin-right: 30px;
+}
+
 /* Animazione di ingrandimento del bottone al clic */
 .custom-button:active {
   transform: scale(0.93);
   transition: transform 0.3s ease;
- 
 }
  
 .imgInter{
@@ -142,3 +147,8 @@
 .textFot{
   margin-left: 150px;
 }
+
+.textStyle{
+  font-family:'Times New Roman', Times, serif
+}
+

@@ -1,4 +1,4 @@
-import { Card, Col, Row, ListGroup } from "react-bootstrap";
+import { Card, Col, Row, ListGroup, Button } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { ActionTypes, addOrder } from "../../Redux/action";
@@ -50,13 +50,16 @@ const MyCart = () => {
     <div>
       {cart ? (
         <div>
-          <h4 className="ms-4 mb-2 mt-3">Carrello</h4>
+          <h4 className="ms-4 mb-2 mt-3 textStyle">Carrello</h4>
 
           <Row className="ms-2">
             {cart.map((product, i) => {
               return (
                 <Col md={3} key={i}>
-                  <Card style={{ width: "15rem", marginBottom: "20px" }}>
+                  <Card
+                    className="text-truncate textStyle"
+                    style={{ width: "15rem", marginBottom: "20px" }}
+                  >
                     <Card.Img
                       variant="top"
                       src={product.image}
@@ -79,28 +82,24 @@ const MyCart = () => {
                         Prezzo: €{product.price.toFixed(2)}
                       </ListGroup.Item>
 
-                      <FaTrash
-                        className="mt-2 mb-2"
-                        style={{
-                          color: "black",
-                          cursor: "pointer",
-                          display: "block",
-                          margin: "auto",
-                        }}
+                      <Button
                         onClick={() => removeToCart(product.id)}
-                      />
+                        className=" bg bg-secondary-subtle border border-black text-black fs-6 custom-button"
+                      >
+                        Elimina
+                      </Button>
                     </ListGroup>
                   </Card>
                 </Col>
               );
             })}
           </Row>
-          <p className="f fs-4 mt-3 ms-4 fw-semibold">
-            Totale da pagare= €{total().toFixed(2)}
+          <p className="fs-4 mt-3 ms-4 fw-semibold textStyle">
+            Totale da pagare= {total().toFixed(2)}€
           </p>
           <button
             onClick={checkOutOrder}
-            className=" checkButton bg bg-body-secondary ms-4 mt-4 rounded-3 border-1 ps-2 pe-2"
+            className=" checkButton bg bg-body-secondary ms-4 mt-2 rounded-3 border-1 ps-2 pe-2"
           >
             Vai all'ordine
           </button>

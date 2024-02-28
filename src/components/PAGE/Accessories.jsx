@@ -17,13 +17,16 @@ const Accessories = () => {
 
   return (
     <div>
-      <h4 className="ms-5 ps-5 mt-2 mb-4">Accessori</h4>
+      <h4 className="text-center mt-2 mb-4">Accessori</h4>
       <Container>
         <Row xs={1} md={2} lg={3} xl={4} xxl={5} className="g-4">
           {accessories ? (
             accessories.map((product, index) => (
               <Col md={3} key={index}>
-                <Card style={{ width: "15rem", marginBottom: "20px" }}>
+                <Card
+                  className="text-truncate textStyle custom-card"
+                  style={{ width: "15rem", marginBottom: "20px" }}
+                >
                   <Card.Img
                     variant="top"
                     src={product.image}
@@ -56,7 +59,7 @@ const Accessories = () => {
                     </ListGroup.Item>
                   </ListGroup>
                   <Button
-                    className="ms-4 me-4 mt-2 mb-2 text-black border border-black bg bg-body-secondary "
+                    className="ms-4 me-4 mt-3 mb-2 text-black border border-black bg bg-body-secondary "
                     onClick={() => {
                       dispatch({
                         type: ActionTypes.ADD_CART,

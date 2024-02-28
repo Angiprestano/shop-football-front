@@ -18,14 +18,14 @@ const SweatShirtMan = () => {
 
   return (
     <div className="">
-      <h4 className=" pt-2 mb-4 text-center">Felpe</h4>
+      <h4 className=" pt-2 mb-4 text-center textStyle">Felpe</h4>
       <Container>
         <Row xs={1} sm={2} md={3} lg={4} xl={4} xxl={5} className="g-4">
           {sweatshirtMan ? (
             sweatshirtMan.map((product, index) => (
               <Col md={3} key={index}>
                 <Card
-                  className="text-truncate animationCard"
+                  className="text-truncate animationCard textStyle"
                   style={{ width: "15rem", marginBottom: "20px" }}
                 >
                   <Link
