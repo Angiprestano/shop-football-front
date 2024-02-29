@@ -13,7 +13,6 @@ const PageProduct = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    // Verifico che l'ID sia una stringa valida prima di eseguire la chiamata API
     if (id && typeof id === "string") {
       fetch(`http://localhost:3001/products/${id}`, {
         headers: {
@@ -70,7 +69,11 @@ const PageProduct = () => {
                   <h4>Descrizione:</h4>
                   {product.description}
                 </Card.Text>
-                <Card.Text>Prezzo: €{product.price.toFixed(2)}</Card.Text>
+                <Card.Text
+                  className={`mt-1 ${product.isOnSale ? "text-danger" : ""}`}
+                >
+                  Prezzo: €{product.price.toFixed(2)}
+                </Card.Text>
                 <Card.Text>Categoria: {product.categories}</Card.Text>
                 <Card.Text>Tipo di prodotto: {product.typeofproduct}</Card.Text>
                 <Card.Text>Taglia: {product.size}</Card.Text>

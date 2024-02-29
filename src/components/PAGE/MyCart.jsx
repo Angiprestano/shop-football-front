@@ -1,14 +1,16 @@
-import { Card, Col, Row, ListGroup, Button } from "react-bootstrap";
+import { Card, Col, Row, ListGroup, Button, Modal } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { ActionTypes, addOrder } from "../../Redux/action";
-import { FaTrash } from "react-icons/fa";
+import { useState } from "react";
 
 const MyCart = () => {
   const token = useSelector((state) => state.token);
   const cart = useSelector((state) => state.cart);
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const [showConfirmationModal, setShowConfirmationModal] = useState(false);
+  const [productIdToDelete, setProductIdToDelete] = useState(null);
 
   const checkOutOrder = () => {
     const body = { listProduct: [] };
@@ -25,10 +27,20 @@ const MyCart = () => {
   };
 
   const removeToCart = (id) => {
-    dispatch({
-      type: ActionTypes.REMOVE_TO_CART,
-      payload: id,
-    });
+    setProductIdToDelete(id);
+    setShowConfirmationModal(true);
+  };
+
+  const confirmDelete = () => {
+    if (productIdToDelete) {
+      dispatch({
+        type: ActionTypes.REMOVE_TO_CART,
+        payload: productIdToDelete,
+      });
+    }
+    setShowConfirmationModal(false);
+
+    setProductIdToDelete(null);
   };
 
   const total = () => {
@@ -50,7 +62,9 @@ const MyCart = () => {
     <div>
       {cart ? (
         <div>
-          <h4 className="ms-4 mb-2 mt-3 textStyle">Carrello</h4>
+          <h4 className="ms-4 mb-2 mt-3 textStyle text-center fw-bold">
+            Carrello
+          </h4>
 
           <Row className="ms-2">
             {cart.map((product, i) => {
@@ -94,6 +108,30 @@ const MyCart = () => {
               );
             })}
           </Row>
+
+          <Modal
+            show={showConfirmationModal}
+            onHide={() => setShowConfirmationModal(false)}
+          >
+            <Modal.Header closeButton>
+              <Modal.Title>Conferma eliminazione</Modal.Title>
+            </Modal.Header>
+            <Modal.Body>
+              Sei sicuro di voler eliminare questo prodotto dal carrello?
+            </Modal.Body>
+            <Modal.Footer>
+              <Button
+                variant="secondary"
+                onClick={() => setShowConfirmationModal(false)}
+              >
+                Annulla
+              </Button>
+              <Button variant="warning" onClick={confirmDelete}>
+                Elimina
+              </Button>
+            </Modal.Footer>
+          </Modal>
+
           <p className="fs-4 mt-3 ms-4 fw-semibold textStyle">
             Totale da pagare= {total().toFixed(2)}€
           </p>
