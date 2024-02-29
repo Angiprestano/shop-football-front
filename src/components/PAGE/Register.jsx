@@ -38,7 +38,7 @@ const Register = () => {
         console.log(data);
         alert("Registered correctly!");
         setTimeout(() => {
-          navigate("/login");
+          navigate("/");
         }, 500);
       })
       .catch((err) => {
