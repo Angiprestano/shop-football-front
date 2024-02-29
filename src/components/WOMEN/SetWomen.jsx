@@ -3,6 +3,7 @@ import { ActionTypes, getCalcioWomen } from "../../Redux/action";
 import { useEffect } from "react";
 import { Button, Card, Col, Container, ListGroup, Row } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import { ArrowLeft } from "react-bootstrap-icons";
 
 const SetWomen = () => {
   const token = useSelector((state) => state.token);
@@ -16,9 +17,21 @@ const SetWomen = () => {
     }
   }, [dispatch, token]);
 
+  const handleGoBack = () => {
+    window.history.back();
+  };
+
   return (
     <div className="">
       <h4 className="ms-5 ps-3 pt-3 mb-4">Completi calcio per Donna</h4>
+      <Link
+        to="#"
+        onClick={handleGoBack}
+        style={{ position: "absolute", left: "10px", top: "10px" }}
+        className="text-black"
+      >
+        <ArrowLeft size={20} />
+      </Link>
       <Container>
         <Row xs={1} sm={2} md={3} lg={4} xl={4} xxl={5} className="g-4">
           {calcioWomen ? (

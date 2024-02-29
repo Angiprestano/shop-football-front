@@ -3,6 +3,7 @@ import { ActionTypes, getSuitMan } from "../../Redux/action";
 import { useEffect } from "react";
 import { Button, Card, Col, Container, ListGroup, Row } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import { ArrowLeft } from "react-bootstrap-icons";
 
 const SuitMan = () => {
   const token = useSelector((state) => state.token);
@@ -16,9 +17,21 @@ const SuitMan = () => {
     }
   }, [dispatch, token]);
 
+  const handleGoBack = () => {
+    window.history.back();
+  };
+
   return (
     <div className="">
       <h4 className="text-center pt-2 mb-4 text-center ">Tute</h4>
+      <Link
+        to="#"
+        onClick={handleGoBack}
+        style={{ position: "absolute", left: "10px", top: "10px" }}
+        className="text-black"
+      >
+        <ArrowLeft size={20} />
+      </Link>
       <Container>
         <Row xs={1} sm={2} md={3} lg={4} xl={4} xxl={5} className="g-4">
           {suitMan ? (
@@ -31,6 +44,7 @@ const SuitMan = () => {
                   <Link
                     to={`/products/${product.id}`}
                     className="text-decoration-none text-black "
+                    style={{ textDecoration: "none" }}
                   >
                     <Card.Img
                       variant="top"

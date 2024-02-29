@@ -77,7 +77,7 @@ const PageProduct = () => {
                 <Card.Text>Colore: {product.color}</Card.Text>
               </Card.Body>
               <Button
-                className="ms-4 me-4 mt-2 mb-2 text-black border border-black bg bg-body-secondary custom-button"
+                className=" ms-4 me-4 mt-2 mb-2 text-black border border-black bg bg-body-secondary custom-button"
                 onClick={() => {
                   dispatch({
                     type: ActionTypes.ADD_CART,

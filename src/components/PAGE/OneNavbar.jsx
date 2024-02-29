@@ -1,7 +1,6 @@
 import { useState } from "react";
 import {
   Button,
-  Card,
   Col,
   Form,
   NavLink,
@@ -21,13 +20,8 @@ const OneNavbar = () => {
   const navigate = useNavigate();
   const [searchTerm, setSearchTerm] = useState("");
   const [searchResults, setSearchResults] = useState([]);
-  const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const token = useSelector((state) => state.token);
-
-  const handleChange = (event) => {
-    setSearchTerm(event.target.value);
-  };
 
   const handleSearch = () => {
     const url = `http://localhost:3001/products/part_title?partOfTitle=${encodeURIComponent(
@@ -184,15 +178,7 @@ const OneNavbar = () => {
                 Accessori
               </Nav.Link>
             </OverlayTrigger>
-            <OverlayTrigger
-              trigger="click"
-              placement="bottom"
-              overlay={<Popover></Popover>}
-            >
-              <Nav.Link href="/salesTshirt" className="text-white ">
-                Nuova collezione
-              </Nav.Link>
-            </OverlayTrigger>
+
             <OverlayTrigger
               trigger="click"
               placement="bottom"
@@ -230,24 +216,6 @@ const OneNavbar = () => {
         >
           Carrello
         </Button>
-
-        {loading && <p>Caricamento...</p>}
-        {error && <p>{error}</p>}
-        {searchResults.length > 0 && (
-          <div>
-            <h5>Risultati della ricerca:</h5>
-            <div>
-              {searchResults.map((result) => (
-                <Card key={result.id}>
-                  <Card.Body>
-                    <Card.Title>{result.title}</Card.Title>
-                    <Card.Text>{result.description}</Card.Text>
-                  </Card.Body>
-                </Card>
-              ))}
-            </div>
-          </div>
-        )}
       </Container>
     </Navbar>
   );

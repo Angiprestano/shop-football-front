@@ -3,6 +3,7 @@ import { ActionTypes, getTshirtMan } from "../../Redux/action";
 import { useEffect, useState } from "react";
 import { Button, Card, Col, Container, ListGroup, Row } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import { ArrowLeft } from "react-bootstrap-icons";
 
 const TshirtMan = () => {
   const token = useSelector((state) => state.token);
@@ -25,9 +26,21 @@ const TshirtMan = () => {
     setSelectedProducts([...selectedProducts, product]);
   };
 
+  const handleGoBack = () => {
+    window.history.back();
+  };
+
   return (
     <div>
       <h4 className="text-center pt-3 mb-4 text-black textStyle">Magliette</h4>
+      <Link
+        to="#"
+        onClick={handleGoBack}
+        style={{ position: "absolute", left: "10px", top: "10px" }}
+        className="text-black"
+      >
+        <ArrowLeft size={20} />
+      </Link>
       <Container>
         <Row xs={1} sm={2} md={3} lg={4} xl={4} xxl={5} className="g-4">
           {tshirtMan ? (

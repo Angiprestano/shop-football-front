@@ -3,6 +3,7 @@ import { ActionTypes, getTshirtWomen } from "../../Redux/action";
 import { useEffect } from "react";
 import { Button, Card, Col, Container, ListGroup, Row } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import { ArrowLeft } from "react-bootstrap-icons";
 
 const TshirtWomen = () => {
   const token = useSelector((state) => state.token);
@@ -16,10 +17,23 @@ const TshirtWomen = () => {
     }
   }, [dispatch, token]);
 
+  const handleGoBack = () => {
+    window.history.back();
+  };
+
   return (
     <div className="">
       <h4 className="text-center pt-3 mb-4">Magliette per Donna</h4>
+
       <Container>
+        <Link
+          to="#"
+          onClick={handleGoBack}
+          style={{ position: "absolute", left: "10px", top: "10px" }}
+          className="text-black"
+        >
+          <ArrowLeft size={20} />
+        </Link>
         <Row xs={1} sm={2} md={3} lg={4} xl={4} xxl={5} className="g-4">
           {tshirtWomen ? (
             tshirtWomen.map((product, index) => (
