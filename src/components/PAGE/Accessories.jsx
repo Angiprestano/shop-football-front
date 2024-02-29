@@ -78,7 +78,7 @@ const Accessories = () => {
                     </ListGroup>
                   </Link>
                   <Button
-                    className=" ms-4 me-4 mt-3 mb-2 text-black border border-black bg bg-body-secondary "
+                    className=" ms-4 me-4 mt-3 mb-2 text-black border border-black bg bg-body-secondary custom-button"
                     onClick={() => {
                       dispatch({
                         type: ActionTypes.ADD_CART,
