@@ -18,3 +18,4 @@ npm i @stripe/stripe-js
 
 Adesso, per avviare l'applicazione e osservare il progetto completo andiamo qui: http://localhost:3000/
 Mentre per visualizzare la parte back-end vai al seguente link: 
+https://github.com/Angiprestano/ShopFootball.git
