@@ -70,8 +70,8 @@ const OneNavbar = () => {
         <Navbar.Brand href="/homepage" className="text-white fw-semibold ms-2">
           Inter Store
         </Navbar.Brand>
-        <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Navbar.Collapse id="basic-navbar-nav">
+        <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+        <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto">
             <NavLink href="/homepage" className="text-white">
               Home

@@ -401,7 +401,7 @@ const Homepage = () => {
                     {chunk.map((product, idx) => (
                       <Card
                         key={idx}
-                        className="col-12 col-sm-6 col-md-4 col-lg-3 custom-card mb-4 mx-3"
+                        className="col-12 col-sm-6 col-md-4 col-lg-3 custom-card mb-5 mx-3"
                       >
                         <Card.Img
                           className="mt-1"
@@ -444,7 +444,7 @@ const Homepage = () => {
         fluid
         className="footerInter bg bg-black text-white pt-3 ms-0 me-0"
       >
-        <div className="sponsor">
+        <div className="sponsor  d-flex flex-wrap justify-content-center">
           <SiNike />
           <FaEbay className="ms-4" />
           <SiQatarairways className="ms-4 mb-1" />
@@ -468,8 +468,8 @@ const Homepage = () => {
           <SiMicrosoft className="ms-4" />
         </div>
 
-        <Nav>
-          <div className="textFot d-flex flex-row mt-4 mt-3">
+        <Nav className="d-flex flex-column flex-md-row justify-content-around">
+          <div className="textStyle d-flex flex-row mt-4 mt-3">
             <span className="d-flex flex-column ms-4 ">
               <h5>SHOPPING</h5>
               <p>Acquisti online</p>
@@ -502,7 +502,9 @@ const Homepage = () => {
             </span>
           </div>
 
-          <div className="icons ">
+          <hr className="my-4 d-md-none"></hr>
+
+          <div className="icons d-flex justify-content-center justify-content-md-end align-items-center flex-wrap mt-3 mt-md-0 ">
             <Telegram className="me-3" />
             <Linkedin className="me-3" />
             <Tiktok className="me-3" />
@@ -524,8 +526,8 @@ const Homepage = () => {
               <FaCcJcb className="me-4" />
             </div>
           </div>
-          <hr></hr>
-          <div className="cookie">
+          <hr className="my-4 d-md-none"></hr>
+          <div className="cookie text-center text-md-start">
             <h6>IMPOSTAZIONI COOKIE</h6>
             <p>
               Copyright © 1995-2022 F.C. Internazionale Milano P.IVA 04231750151
