@@ -37,7 +37,7 @@ const PageLogin = () => {
     >
       <Container className=" d-flex justify-content-center">
         <Row className="justify-content-evenly align-align-items-center w-50 h-50 mt-5">
-          <Col>
+          <Col xs={10} sm={8} md={6} lg={4}>
             <Form className="mt-5 pt-3 ps-3">
               <Form.Group className="mb-3 mt-3" controlId="formBasicEmail">
                 <Form.Label className="fw-semibold text-white">

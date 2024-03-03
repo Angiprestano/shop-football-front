@@ -174,7 +174,7 @@ const Homepage = () => {
 
       <div className="bg bg-body-secondary">
         <Link to="/suitMan" style={{ textDecoration: "none" }}>
-          <h4 className=" mt-4 pt-4 mb-3 mb-2 mt-3 text-center text-black">
+          <h4 className=" mt-4 pt-4 mb-3 mb-2 mt-3 text-center text-black textStyle">
             Tute uomo
           </h4>
         </Link>
@@ -187,7 +187,7 @@ const Homepage = () => {
                     {chunk.map((product, idx) => (
                       <Card
                         key={idx}
-                        className="col-12 col-sm-6 col-md-4 col-lg-3 ms-2 mx-3 custom-card"
+                        className="col-12 col-sm-6 col-md-4 col-lg-3 ms-2 mx-3 custom-card textStyle"
                       >
                         <Card.Img
                           className="mt-3 ms-5"
@@ -231,18 +231,20 @@ const Homepage = () => {
         {/* 2)ROWCAROUSEL  */}
 
         <Link to="/accessories" style={{ textDecoration: "none" }}>
-          <h4 className="pt-3 mb-2 mb-3 text-center text-black">Accessori</h4>
+          <h4 className="pt-3 mb-2 mb-3 text-center text-black textStyle">
+            Accessori
+          </h4>
         </Link>
         <Container>
           <Carousel>
             {accessories ? (
               chunkArray(accessories, 6).map((chunk, index) => (
                 <Carousel.Item key={index}>
-                  <div className="d-flex justify-content-between  align-items-center">
+                  <div className="d-flex justify-content-between align-items-center">
                     {chunk.map((product, idx) => (
                       <Card
                         key={idx}
-                        className="col-12 col-sm-6 col-md-4 col-lg-3 custom-card mx-4 mt-2 ms-2"
+                        className="col-12 col-sm-6 col-md-4 col-lg-3 custom-card mx-4 mt-2 ms-2 textStyle"
                       >
                         <Card.Img
                           className="ms-5"
@@ -284,7 +286,7 @@ const Homepage = () => {
         </Container>
 
         <Link to="/accessories" style={{ textDecoration: "none" }}>
-          <h4 className="pt-3 mb-2 mb-3 text-center text-black">
+          <h4 className="pt-3 mb-2 mb-3 text-center text-black textStyle">
             Magliette Uomo
           </h4>
         </Link>
@@ -297,7 +299,7 @@ const Homepage = () => {
                     {chunk.map((product, idx) => (
                       <Card
                         key={idx}
-                        className="col-12 col-sm-6 col-md-4 col-lg-3 custom-card mx-4 mt-2 ms-2"
+                        className="col-12 col-sm-6 col-md-4 col-lg-3 custom-card mx-4 mt-2 ms-2 textStyle"
                       >
                         <Card.Img
                           className="ms-5"
@@ -338,18 +340,20 @@ const Homepage = () => {
         </Container>
 
         <Link to="/sweatshirtMan" style={{ textDecoration: "none" }}>
-          <h4 className="mt-4 pt-2 text-center mb-4 text-black">Felpe uomo</h4>
+          <h4 className="mt-4 pt-2 text-center mb-4 text-black textStyle">
+            Felpe uomo
+          </h4>
         </Link>
         <Container>
           <Carousel>
             {sweatshirtMan ? (
               chunkArray(sweatshirtMan, 5).map((chunk, index) => (
                 <Carousel.Item key={index}>
-                  <div className="d-flex justify-content-between  align-items-center">
+                  <div className="d-flex justify-content-between align-items-center">
                     {chunk.map((product, idx) => (
                       <Card
                         key={idx}
-                        className="col-12 col-sm-6 col-md-4 col-lg-3 custom-card mb-4 mx-3"
+                        className="col-12 col-sm-6 col-md-4 col-lg-3 custom-card mb-4 mx-3 textStyle"
                       >
                         <Card.Img
                           className="mt-1"
@@ -388,7 +392,7 @@ const Homepage = () => {
         </Container>
 
         <Link to="/tshirtKids" style={{ textDecoration: "none" }}>
-          <h4 className="mt-4 pt-2 text-center mb-4 text-black">
+          <h4 className="mt-4 pt-2 text-center mb-4 text-black textStyle">
             Magliette bambino
           </h4>
         </Link>
@@ -401,7 +405,7 @@ const Homepage = () => {
                     {chunk.map((product, idx) => (
                       <Card
                         key={idx}
-                        className="col-12 col-sm-6 col-md-4 col-lg-3 custom-card mb-5 mx-3"
+                        className="col-12 col-sm-6 col-md-4 col-lg-3 custom-card mb-5 mx-3 textStyle"
                       >
                         <Card.Img
                           className="mt-1"
@@ -444,7 +448,7 @@ const Homepage = () => {
         fluid
         className="footerInter bg bg-black text-white pt-3 ms-0 me-0"
       >
-        <div className="sponsor  d-flex flex-wrap justify-content-center">
+        <div className="sponsor d-flex flex-wrap justify-content-center justify-content-sm-start">
           <SiNike />
           <FaEbay className="ms-4" />
           <SiQatarairways className="ms-4 mb-1" />
@@ -504,7 +508,7 @@ const Homepage = () => {
 
           <hr className="my-4 d-md-none"></hr>
 
-          <div className="icons d-flex justify-content-center justify-content-md-end align-items-center flex-wrap mt-3 mt-md-0 ">
+          <div className="icons d-flex justify-content-center justify-content-md-center justify-content-sm-start align-items-center flex-wrap mt-3 mt-md-0 ">
             <Telegram className="me-3" />
             <Linkedin className="me-3" />
             <Tiktok className="me-3" />
@@ -515,7 +519,7 @@ const Homepage = () => {
             <Facebook className="me-3" />
             <Whatsapp className="me-3" />
             <BsTwitterX />
-            <div className="cart d-flex flex-row">
+            <div className="cart d-flex flex-row justify-content-md-center justify-content-sm-start">
               <FaCcPaypal className="me-4" />
               <FaCcMastercard className="me-4" />
               <FaCcAmazonPay className="me-4" />
@@ -526,8 +530,8 @@ const Homepage = () => {
               <FaCcJcb className="me-4" />
             </div>
           </div>
-          <hr className="my-4 d-md-none"></hr>
-          <div className="cookie text-center text-md-start">
+          <hr className="s"></hr>
+          <div className="cookie text-center text-sm-start mt-3 mt-md-0">
             <h6>IMPOSTAZIONI COOKIE</h6>
             <p>
               Copyright © 1995-2022 F.C. Internazionale Milano P.IVA 04231750151

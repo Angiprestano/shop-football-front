@@ -67,13 +67,16 @@ const OneNavbar = () => {
           src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/FC_Internazionale_Milano_2021.svg/1024px-FC_Internazionale_Milano_2021.svg.png"
           className="logo mt-1 me-3"
         ></img>
-        <Navbar.Brand href="/homepage" className="text-white fw-semibold ms-2">
+        <Navbar.Brand
+          href="/homepage"
+          className="text-white fw-semibold ms-2 textStyle"
+        >
           Inter Store
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto">
-            <NavLink href="/homepage" className="text-white">
+            <NavLink href="/homepage" className="text-white textStyle">
               Home
             </NavLink>
             <OverlayTrigger
@@ -86,56 +89,95 @@ const OneNavbar = () => {
                   <Popover.Body>
                     <Row>
                       <Col className="me-3 ms-2">
-                        <h6>Uomo</h6>
-                        <Link to="/tshirtMan" className="dropdown-item">
+                        <h6 className="textStyle fw-bold ">Uomo</h6>
+                        <Link
+                          to="/tshirtMan"
+                          className="dropdown-item textStyle"
+                        >
                           Magliette
                         </Link>
-                        <Link to="/sweatshirtMan" className="dropdown-item">
+                        <Link
+                          to="/sweatshirtMan"
+                          className="dropdown-item textStyle"
+                        >
                           Felpe
                         </Link>
-                        <Link to="/pantsMan" className="dropdown-item">
+                        <Link
+                          to="/pantsMan"
+                          className="dropdown-item textStyle"
+                        >
                           Pantaloni
                         </Link>
-                        <Link to="/suitMan" className="dropdown-item">
+                        <Link to="/suitMan" className="dropdown-item textStyle">
                           Tute
                         </Link>
-                        <Link to="/pajamasMan" className="dropdown-item">
+                        <Link
+                          to="/pajamasMan"
+                          className="dropdown-item textStyle"
+                        >
                           Pigiami
                         </Link>
-                        <Link to="/setUomo" className="dropdown-item">
+                        <Link to="/setUomo" className="dropdown-item textStyle">
                           Set Calcio
                         </Link>
                       </Col>
                       <Col>
-                        <h6>Donna</h6>
-                        <Link to="/tshirtWomen" className="dropdown-item">
+                        <h6 className="textStyle fw-bold ">Donna</h6>
+                        <Link
+                          to="/tshirtWomen"
+                          className="dropdown-item textStyle"
+                        >
                           Magliette
                         </Link>
-                        <Link to="/sweatshirtWomen" className="dropdown-item">
+                        <Link
+                          to="/sweatshirtWomen"
+                          className="dropdown-item textStyle"
+                        >
                           Felpe
                         </Link>
-                        <Link to="/suitWomen" className="dropdown-item">
+                        <Link
+                          to="/suitWomen"
+                          className="dropdown-item textStyle"
+                        >
                           Tute
                         </Link>
-                        <Link to="/pajamasWomen" className="dropdown-item">
+                        <Link
+                          to="/pajamasWomen"
+                          className="dropdown-item textStyle"
+                        >
                           Pigiami
                         </Link>
-                        <Link to="/setDonna" className="dropdown-item">
+                        <Link
+                          to="/setDonna"
+                          className="dropdown-item textStyle"
+                        >
                           Set Calcio
                         </Link>
                       </Col>
                       <Col className="me-3 ms-2">
-                        <h6 className="mt-3">Bambino</h6>
-                        <Link to="/tshirtKids" className="dropdown-item">
+                        <h6 className="mt-3 textStyle fw-bold">Bambino</h6>
+                        <Link
+                          to="/tshirtKids"
+                          className="dropdown-item textStyle"
+                        >
                           Magliette
                         </Link>
-                        <Link to="/felpaKids" className="dropdown-item">
+                        <Link
+                          to="/felpaKids"
+                          className="dropdown-item textStyle"
+                        >
                           Felpe
                         </Link>
-                        <Link to="/suitKids" className="dropdown-item">
+                        <Link
+                          to="/suitKids"
+                          className="dropdown-item textStyle"
+                        >
                           Tute
                         </Link>
-                        <Link to="/pajamasKids" className="dropdown-item">
+                        <Link
+                          to="/pajamasKids"
+                          className="dropdown-item textStyle textStyle"
+                        >
                           Pigiami
                         </Link>
                         <Link to="/setKids" className="dropdown-item">
@@ -147,7 +189,7 @@ const OneNavbar = () => {
                 </Popover>
               }
             >
-              <Nav.Link href="#" className="text-white">
+              <Nav.Link href="#" className="text-white textStyle">
                 Abbigliamento
               </Nav.Link>
             </OverlayTrigger>
@@ -164,7 +206,7 @@ const OneNavbar = () => {
                       <Col>
                         <Link
                           to="/accessories"
-                          className="dropdown-item ms-2 me-2 mt-2 mb-2"
+                          className="dropdown-item ms-2 me-2 mt-2 mb-2 textStyle"
                         >
                           Accessori
                         </Link>
@@ -174,7 +216,7 @@ const OneNavbar = () => {
                 </Popover>
               }
             >
-              <Nav.Link href="#" className="text-white">
+              <Nav.Link href="#" className="text-white textStyle fw-5">
                 Accessori
               </Nav.Link>
             </OverlayTrigger>
@@ -184,7 +226,10 @@ const OneNavbar = () => {
               placement="bottom"
               overlay={<Popover></Popover>}
             >
-              <Nav.Link href="/salesTshirt" className="text-danger fw-bold ">
+              <Nav.Link
+                href="/salesTshirt"
+                className="text-danger fw-bold textStyle"
+              >
                 Sconti
               </Nav.Link>
             </OverlayTrigger>
@@ -194,7 +239,7 @@ const OneNavbar = () => {
           <Form.Control
             type="text"
             placeholder="Search"
-            className="d-flex justify-content-end"
+            className="d-flex justify-content-end textStyle"
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
           />
@@ -202,13 +247,13 @@ const OneNavbar = () => {
         <Button
           type="button"
           onClick={handleSearch}
-          className="ms-3 fw-bold bg bg-black border border-black"
+          className="ms-3 fw-bold bg bg-black border border-black "
         >
           Cerca
         </Button>
 
         <Button
-          className="bg bg-body-secondary text-black border border-black ms-2 custom-button"
+          className="textStyle bg bg-body-secondary text-black border border-black ms-2 custom-button "
           onClick={(e) => {
             e.preventDefault();
             navigate("/cart");

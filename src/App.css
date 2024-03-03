@@ -43,7 +43,7 @@
 
 .buttons{
   transition: 0.3s ease;
-  width: 18%;
+  width: 84px;
   cursor: pointer;
   
 }
@@ -103,6 +103,7 @@
   transform: scale(0.93);
   transition: transform 0.3s ease;
 }
+
  
 .imgInter{
   display: flex;
@@ -156,3 +157,4 @@
   margin-left: 200px;
   margin-bottom: 5px;
 }
+
