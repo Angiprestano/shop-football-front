@@ -18,7 +18,7 @@ const SearchForm = () => {
         Risultati della ricerca
       </h4>
 
-      <Row xs={1} md={2} lg={3} className="g-4 mx-4">
+      <Row xs={1} md={2} lg={3} className="g-4 mx-4 ps-5 ms-5 mt-2">
         {searchResults.map((product, index) => (
           <Col key={index}>
             <Link
