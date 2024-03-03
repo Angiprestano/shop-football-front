@@ -187,7 +187,7 @@ const Homepage = () => {
                     {chunk.map((product, idx) => (
                       <Card
                         key={idx}
-                        className="col-12 col-sm-6 col-md-4 col-lg-3 ms-2 custom-card"
+                        className="col-12 col-sm-6 col-md-4 col-lg-3 ms-2 mx-3 custom-card"
                       >
                         <Card.Img
                           className="mt-3 ms-5"

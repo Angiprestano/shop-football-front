@@ -1,8 +1,9 @@
 import { Card, Col, Row, ListGroup, Button, Modal } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { ActionTypes, addOrder } from "../../Redux/action";
 import { useState } from "react";
+import { ArrowLeft } from "react-bootstrap-icons";
 
 const MyCart = () => {
   const token = useSelector((state) => state.token);
@@ -58,6 +59,10 @@ const MyCart = () => {
   };
   console.log(total());
 
+  const handleGoBack = () => {
+    window.history.back();
+  };
+
   return (
     <div>
       {cart ? (
@@ -65,7 +70,14 @@ const MyCart = () => {
           <h4 className="ms-4 mb-2 mt-3 textStyle text-center fw-bold">
             Carrello
           </h4>
-
+          <Link
+            to="#"
+            onClick={handleGoBack}
+            style={{ position: "absolute", left: "10px", top: "10px" }}
+            className="text-black"
+          >
+            <ArrowLeft size={20} />
+          </Link>
           <Row className="ms-2">
             {cart.map((product, i) => {
               return (
