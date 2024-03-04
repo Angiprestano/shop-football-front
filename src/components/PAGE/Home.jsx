@@ -187,7 +187,7 @@ const Homepage = () => {
                     {chunk.map((product, idx) => (
                       <Card
                         key={idx}
-                        className="col-12 col-sm-6 col-md-4 col-lg-3 ms-2 mx-3 custom-card textStyle"
+                        className="col-12 col-sm-6 col-md-4 col-lg-3 mx-4 custom-card textStyle"
                       >
                         <Card.Img
                           className="mt-3 ms-5"
@@ -208,7 +208,7 @@ const Homepage = () => {
                             Prezzo: €{product.price.toFixed(2)}
                           </ListGroup.Item>
                           <Button
-                            className="mt-2 mb-1"
+                            className="mt-3 mb-1"
                             onClick={() => handleAddToCart(product)}
                             variant="bg bg-primary-subtle"
                           >

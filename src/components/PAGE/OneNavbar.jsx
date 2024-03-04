@@ -180,7 +180,7 @@ const OneNavbar = () => {
                         >
                           Pigiami
                         </Link>
-                        <Link to="/setKids" className="dropdown-item">
+                        <Link to="/setKids" className="dropdown-item textStyle">
                           Set Calcio
                         </Link>
                       </Col>
