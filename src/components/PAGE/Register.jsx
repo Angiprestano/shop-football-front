@@ -62,9 +62,9 @@ const Register = () => {
         <Container className=" d-flex justify-content-center mt-4">
           <Row className="justify-content-evenly align-align-items-center w-50 h-50 mt-5">
             <Col>
-              <h2 className="mt-2 text-white ">Registrati</h2>
+              <h2 className="mt-2 text-white pe-2">Registrati</h2>
               <Form
-                className="mt-3 pt-3 ps-2"
+                className="mt-3 pt-3 ps-1"
                 onSubmit={(e) => {
                   e.preventDefault();
                   registerUser();
@@ -130,7 +130,7 @@ const Register = () => {
                 </Form.Group>
                 <Button
                   type="submit"
-                  className="buttons text-primary mb-3 ms-2 mt-3 bg-black border-black fw-semibold"
+                  className="buttons text-primary mb-3 ms-1 mt-3 ms-1 bg-black border-black fw-semibold"
                 >
                   Registrati
                 </Button>
