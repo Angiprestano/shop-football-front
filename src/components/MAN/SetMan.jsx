@@ -75,7 +75,7 @@ const SetMan = () => {
 
   return (
     <div className="">
-      <h4 className="text-center pt-3 mb-4">Completi calcio</h4>
+      <h4 className="text-center pt-3 mb-4 textStyle">Completi calcio</h4>
       <Link
         to="#"
         onClick={handleGoBack}

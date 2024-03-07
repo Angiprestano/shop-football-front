@@ -23,7 +23,9 @@ const SetWomen = () => {
 
   return (
     <div className="">
-      <h4 className="ms-5 ps-3 pt-3 mb-4">Completi calcio per Donna</h4>
+      <h4 className="ms-5 ps-3 pt-3 mb-4 textStyle">
+        Completi calcio per Donna
+      </h4>
       <Link
         to="#"
         onClick={handleGoBack}

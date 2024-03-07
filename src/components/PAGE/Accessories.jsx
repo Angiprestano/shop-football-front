@@ -23,7 +23,7 @@ const Accessories = () => {
 
   return (
     <div>
-      <h4 className="text-center mt-2 mb-4">Accessori</h4>
+      <h4 className="text-center mt-2 mb-4 textStyle">Accessori</h4>
       <Link
         to="#"
         onClick={handleGoBack}

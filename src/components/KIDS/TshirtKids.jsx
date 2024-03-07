@@ -23,7 +23,7 @@ const TshirtKids = () => {
 
   return (
     <div className="">
-      <h4 className="text-center pt-3 mb-4">Magliette per bambino</h4>
+      <h4 className="text-center pt-3 mb-4 textStyle">Magliette per bambino</h4>
       <Link
         to="#"
         onClick={handleGoBack}

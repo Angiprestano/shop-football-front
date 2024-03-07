@@ -23,7 +23,7 @@ const SweatShirtWomen = () => {
 
   return (
     <div className="">
-      <h4 className="text-center pt-3 mb-4">Felpe Donna</h4>
+      <h4 className="text-center pt-3 mb-4 textStyle">Felpe Donna</h4>
       <Link
         to="#"
         onClick={handleGoBack}

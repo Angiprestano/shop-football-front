@@ -23,7 +23,7 @@ const PajamasMan = () => {
 
   return (
     <div className="">
-      <h4 className=" text-center ms-5 ps-3 pt-3 mb-4">Pigiami</h4>
+      <h4 className=" text-center ms-5 ps-3 pt-3 mb-4 textStyle">Pigiami</h4>
       <Link
         to="#"
         onClick={handleGoBack}

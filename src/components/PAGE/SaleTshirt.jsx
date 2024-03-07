@@ -23,7 +23,7 @@ const SaleTshirt = () => {
 
   return (
     <div>
-      <h4 className="text-center pt-3 mb-4 text-black">Sconti</h4>
+      <h4 className="text-center pt-3 mb-4 text-black textStyle">Sconti</h4>
       <Link
         to="#"
         onClick={handleGoBack}

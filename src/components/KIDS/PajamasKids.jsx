@@ -23,7 +23,7 @@ const PajamasKids = () => {
 
   return (
     <div className="">
-      <h4 className="text-center pt-3 mb-4">Pigiami per bambini</h4>
+      <h4 className="text-center pt-3 mb-4 textStyle">Pigiami per bambini</h4>
       <Link
         to="#"
         onClick={handleGoBack}

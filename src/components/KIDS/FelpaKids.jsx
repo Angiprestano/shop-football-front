@@ -24,7 +24,7 @@ const FelpaKids = () => {
 
   return (
     <div className="">
-      <h4 className="text-center pt-3 mb-4">Felpe per bambini</h4>
+      <h4 className="text-center pt-3 mb-4 textStyle">Felpe per bambini</h4>
       <Link
         to="#"
         onClick={handleGoBack}

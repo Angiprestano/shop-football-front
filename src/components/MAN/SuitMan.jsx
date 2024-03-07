@@ -75,7 +75,7 @@ const SuitMan = () => {
 
   return (
     <div className="">
-      <h4 className="text-center pt-2 mb-4 text-center ">Tute</h4>
+      <h4 className="text-center pt-2 mb-4 text-center textStyle">Tute</h4>
       <Link
         to="#"
         onClick={handleGoBack}
